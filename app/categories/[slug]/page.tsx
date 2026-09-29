@@ -1,0 +1,5 @@
+import { notFound } from 'next/navigation'
+import { Footer, MachineCard, Navbar, SectionHeading } from '@/components/site'
+import { categories, getCategoryMachines } from '@/lib/site-data'
+export function generateStaticParams() { return categories.map(({ slug }) => ({ slug })) }
+export default async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) { const slug = (await params).slug; const category = categories.find((item) => item.slug === slug); if (!category) notFound(); const items = getCategoryMachines(slug); return <><Navbar /><main className="pt-32"><section className="mx-auto max-w-7xl px-5 pb-24 lg:px-8"><SectionHeading eyebrow="Category" title={category.name} text={category.description} /><div className="mt-12 grid gap-5 md:grid-cols-3">{items.length ? items.map((machine) => <MachineCard key={machine.slug} machine={machine} />) : <p className="text-[#666]">Machines in this category will appear here as the catalogue grows.</p>}</div></section></main><Footer /></> }
