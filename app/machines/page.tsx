@@ -182,7 +182,7 @@ export default async function MachinesPage({
                         {m.name}
                       </Link>
                     </h3>
-                    <p className="mt-3 text-sm leading-6 text-[#616467]">{m.longDescription ?? m.description}</p>
+                    <p className="mt-3 text-sm leading-6 text-[#616467]">{m.description}</p>
 
                     {m.highlights && (
                       <ul className="mt-5 space-y-2">
