@@ -3,38 +3,24 @@
 import { useState, useEffect, useMemo, useCallback } from 'react'
 import { ArrowUpRight, ChevronLeft, ChevronRight, Maximize2, X } from 'lucide-react'
 import { CTASection, Footer, Navbar, SectionHeading } from '@/components/site'
-import { imageUrls } from '@/lib/site-data'
+import { galleryImages } from '@/lib/site-data'
 
-type Filter = 'All' | 'Generators' | 'Tillers' | 'Engines' | 'Hardware'
+type Filter = string
 
 type GalleryImage = {
   src: string
   alt: string
-  category: Exclude<Filter, 'All'>
+  category: string
 }
 
-const images: GalleryImage[] = [
-  { src: imageUrls.generator, alt: 'Perkins Generator', category: 'Generators' },
-  { src: imageUrls.tiller, alt: 'Diesel Power Tiller', category: 'Tillers' },
-  { src: imageUrls.machineExtra1, alt: 'Industrial Diesel Driver Engine', category: 'Engines' },
-  { src: imageUrls.machineExtra2, alt: 'Compact Silent Generator', category: 'Generators' },
-  { src: imageUrls.machineExtra3, alt: 'Multi-Purpose Rotary Tiller', category: 'Tillers' },
-  { src: imageUrls.arquivo1, alt: 'Heavy Duty Site Hardware', category: 'Hardware' },
-  { src: imageUrls.arquivo2, alt: 'Commercial Power Unit', category: 'Generators' },
-  { src: imageUrls.arquivo3, alt: 'Agricultural Tiller Assembly', category: 'Tillers' },
-  { src: imageUrls.arquivo4, alt: 'Field Machinery Gear System', category: 'Tillers' },
-  { src: imageUrls.arquivo5, alt: 'Enclosed Power Unit', category: 'Generators' },
-  { src: imageUrls.arquivo6, alt: 'Heavy Land Cultivator', category: 'Tillers' },
-  { src: imageUrls.arquivo7, alt: 'Industrial Engine Gearhead', category: 'Engines' },
-  { src: imageUrls.arquivo8, alt: 'High-Torque Drive Motor', category: 'Engines' },
-  { src: imageUrls.arquivo9, alt: 'Heavy Cultivator Blades', category: 'Tillers' },
-  { src: imageUrls.arquivo10, alt: 'Compact Power Generator Core', category: 'Generators' },
-  { src: imageUrls.arquivo11, alt: 'Rotary Tiller Gearbox', category: 'Tillers' },
-  { src: imageUrls.arquivo12, alt: 'Site Power Control Unit', category: 'Generators' },
-  { src: imageUrls.arquivo13, alt: 'Custom Hardware Supply', category: 'Hardware' },
-]
+// Built from site-data, where every photo is listed once
+const images: GalleryImage[] = galleryImages.map((g) => ({
+  src: g.image,
+  alt: g.title,
+  category: g.category,
+}))
 
-const filters: Filter[] = ['All', 'Generators', 'Tillers', 'Engines', 'Hardware']
+const filters: Filter[] = ['All', ...Array.from(new Set(images.map((i) => i.category)))]
 
 export default function GalleryPage() {
   const [filter, setFilter] = useState<Filter>('All')

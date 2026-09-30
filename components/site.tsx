@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
+import { useState, useEffect, useRef, useMemo, useCallback, type ReactNode } from 'react'
 import {
   ArrowUpRight,
   ChevronDown,
@@ -18,6 +18,8 @@ import {
   Search,
   ChevronRight,
   CornerDownLeft,
+  ArrowUp,
+  Code2,
 } from 'lucide-react'
 import { address, categories, email, machines, navItems, phone, whatsapp, type Machine } from '@/lib/site-data'
 
@@ -528,46 +530,159 @@ export function Navbar() {
 }
 
 export function Footer() {
+  const developerPhones = [
+    { label: '0700966715', href: 'tel:+256700966715' },
+    { label: '0785639406', href: 'tel:+256785639406' },
+  ]
+
   return (
-    <footer className="bg-[#111] text-white">
-      <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:grid-cols-[1.2fr_1fr_1fr] lg:px-8">
-        <div>
-          <Logo light />
-          <p className="mt-7 max-w-xs text-sm leading-7 text-white/55">
-            We Deal in Quality Machines. A Kampala-based machinery and hardware business for practical,
-            dependable equipment.
-          </p>
-        </div>
-        <div>
-          <p className="eyebrow text-[#e6b84d]">Explore</p>
-          <div className="mt-5 grid grid-cols-2 gap-y-3">
-            {navItems.map(([label, href]) => (
-              <Link key={href} href={href} className="text-sm text-white/60 hover:text-white">
-                {label}
-              </Link>
-            ))}
-          </div>
-        </div>
-        <div>
-          <p className="eyebrow text-[#e6b84d]">Contact</p>
-          <div className="mt-5 space-y-4 text-sm text-white/65">
-            <p className="flex gap-3">
-              <MapPin size={17} className="text-[#e6b84d]" />
-              {address}
+    <footer className="relative overflow-hidden bg-[#111] text-white">
+      {/* decorative glow + top accent line */}
+      <div aria-hidden className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#e6b84d] via-[#f7d98a] to-[#b27f19]" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-32 top-20 h-96 w-96 rounded-full bg-[#e6b84d]/[0.07] blur-3xl"
+      />
+
+      {/* QUICK CONTACT STRIP */}
+      <div className="relative border-b border-white/10">
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 px-5 py-10 md:flex-row md:items-center lg:px-8">
+          <div>
+            <p className="text-2xl font-black tracking-[-0.03em] md:text-3xl">Need a machine? Let&apos;s talk.</p>
+            <p className="mt-1.5 text-sm text-white/55">
+              Our team will help you choose the right equipment for the job.
             </p>
-            <a href={`tel:${phone}`} className="flex gap-3">
-              <Phone size={17} className="text-[#e6b84d]" />
-              {phone}
-            </a>
-            <a href={`mailto:${email}`} className="flex gap-3 break-all">
-              <Mail size={17} className="text-[#e6b84d]" />
-              {email}
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/quote"
+              className="inline-flex h-12 items-center gap-2 bg-[#e6b84d] px-6 text-xs font-black uppercase tracking-widest text-[#111] transition hover:bg-white"
+            >
+              Request a quote <ArrowUpRight size={15} />
+            </Link>
+            <a
+              href={whatsapp}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex h-12 items-center gap-2 border border-white/25 px-6 text-xs font-bold uppercase tracking-widest transition hover:border-[#25D366] hover:bg-[#25D366]"
+            >
+              <MessageCircle size={15} /> WhatsApp us
             </a>
           </div>
         </div>
       </div>
-      <div className="border-t border-white/10 px-5 py-5 text-center text-xs text-white/35">
-        © 2026 Machine Man / Machineman Hardware. All rights reserved.
+
+      {/* MAIN COLUMNS */}
+      <div className="relative mx-auto grid max-w-7xl gap-12 px-5 py-16 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr] lg:px-8">
+        <div>
+          <Logo light />
+          <p className="mt-6 max-w-xs text-sm leading-7 text-white/55">
+            We Deal in Quality Machines. A Kampala-based machinery and hardware business for practical,
+            dependable equipment.
+          </p>
+          <a
+            href={whatsapp}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Chat on WhatsApp"
+            className="mt-6 inline-grid h-11 w-11 place-items-center border border-white/15 text-white/80 transition hover:border-[#25D366] hover:bg-[#25D366] hover:text-white"
+          >
+            <MessageCircle size={18} />
+          </a>
+        </div>
+
+        <div>
+          <p className="eyebrow text-[#e6b84d]">Explore</p>
+          <ul className="mt-6 space-y-3">
+            {navItems.map(([label, href]) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  className="group inline-flex items-center gap-2 text-sm text-white/60 transition hover:text-white"
+                >
+                  <span className="h-px w-0 bg-[#e6b84d] transition-all duration-300 group-hover:w-4" />
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <p className="eyebrow text-[#e6b84d]">Categories</p>
+          <ul className="mt-6 space-y-3">
+            {categories.map((c) => (
+              <li key={c.slug}>
+                <Link
+                  href={`/categories/${c.slug}`}
+                  className="group inline-flex items-center gap-2 text-sm text-white/60 transition hover:text-white"
+                >
+                  <span className="h-px w-0 bg-[#e6b84d] transition-all duration-300 group-hover:w-4" />
+                  {c.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <p className="eyebrow text-[#e6b84d]">Contact</p>
+          <ul className="mt-6 space-y-4 text-sm text-white/65">
+            <li className="flex gap-3">
+              <span className="grid h-9 w-9 shrink-0 place-items-center border border-white/10 bg-white/[0.04]">
+                <MapPin size={16} className="text-[#e6b84d]" />
+              </span>
+              <span className="pt-1.5">{address}</span>
+            </li>
+            <li>
+              <a href={`tel:${phone}`} className="group flex gap-3 transition hover:text-white">
+                <span className="grid h-9 w-9 shrink-0 place-items-center border border-white/10 bg-white/[0.04] transition group-hover:border-[#e6b84d]">
+                  <Phone size={16} className="text-[#e6b84d]" />
+                </span>
+                <span className="pt-1.5">{phone}</span>
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${email}`} className="group flex gap-3 break-all transition hover:text-white">
+                <span className="grid h-9 w-9 shrink-0 place-items-center border border-white/10 bg-white/[0.04] transition group-hover:border-[#e6b84d]">
+                  <Mail size={16} className="text-[#e6b84d]" />
+                </span>
+                <span className="pt-1.5">{email}</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* BOTTOM BAR */}
+      <div className="relative border-t border-white/10">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-5 py-6 text-xs text-white/40 lg:flex-row lg:px-8">
+          <p>© 2026 Machine Man / Machineman Hardware. All rights reserved.</p>
+
+          <p className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-white/50">
+            <Code2 size={14} className="text-[#e6b84d]" />
+            <span>
+              Developed by <strong className="font-semibold text-white/80">Baliddawa Allan</strong>
+            </span>
+            <span className="hidden text-white/20 sm:inline">·</span>
+            {developerPhones.map((p, i) => (
+              <span key={p.href} className="flex items-center gap-2">
+                <a href={p.href} className="transition hover:text-[#e6b84d]">
+                  {p.label}
+                </a>
+                {i < developerPhones.length - 1 && <span className="text-white/20">/</span>}
+              </span>
+            ))}
+          </p>
+
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="inline-flex items-center gap-2 border border-white/15 px-3.5 py-2 font-semibold uppercase tracking-widest text-white/60 transition hover:border-[#e6b84d] hover:text-[#e6b84d]"
+          >
+            Back to top <ArrowUp size={13} />
+          </button>
+        </div>
       </div>
     </footer>
   )
@@ -586,7 +701,10 @@ export function SectionHeading({
 }) {
   return (
     <div className={`max-w-2xl ${light ? 'text-white' : ''}`}>
-      <p className="eyebrow text-[#b27f19]">{eyebrow}</p>
+      <div className="flex items-center gap-3">
+        <span className="h-[3px] w-8 bg-[#e6b84d]" />
+        <p className="eyebrow text-[#b27f19]">{eyebrow}</p>
+      </div>
       <h2 className="mt-4 text-4xl font-black tracking-[-0.05em] md:text-6xl">{title}</h2>
       {text && (
         <p className={`mt-5 max-w-xl text-base leading-7 ${light ? 'text-white/60' : 'text-[#6f7273]'}`}>
@@ -597,32 +715,45 @@ export function SectionHeading({
   )
 }
 
+const availabilityDot: Record<Machine['availability'], string> = {
+  Available: 'bg-emerald-500',
+  'Limited Availability': 'bg-amber-500',
+  'Contact for Availability': 'bg-sky-500',
+}
+
 export function MachineCard({ machine }: { machine: Machine }) {
   return (
-    <article className="group border border-black/10 bg-white">
-      <Link href={`/machines/${machine.slug}`} className="block">
+    <article className="group h-full border border-black/10 bg-white transition duration-300 hover:border-black/25">
+      <Link href={`/machines/${machine.slug}`} className="flex h-full flex-col">
         <div className="relative aspect-[1.16] overflow-hidden bg-[#f3f3f1]">
           <img
             src={machine.image}
             alt={machine.name}
+            loading="lazy"
             referrerPolicy="no-referrer"
             className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
           />
-          <span className="absolute left-4 top-4 bg-white px-3 py-2 text-[10px] font-bold uppercase tracking-widest">
+          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/30 to-transparent" />
+          <span className="absolute left-4 top-4 inline-flex items-center gap-2 bg-white px-3 py-2 text-[10px] font-bold uppercase tracking-widest">
+            <span className={`h-1.5 w-1.5 rounded-full ${availabilityDot[machine.availability]}`} />
             {machine.availability}
           </span>
           <span className="absolute bottom-4 right-4 grid h-10 w-10 place-items-center bg-[#e6b84d] text-[#111] opacity-0 transition group-hover:opacity-100">
             <ArrowUpRight size={17} />
           </span>
         </div>
-        <div className="p-5">
+        <div className="flex flex-1 flex-col p-5">
           <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#b27f19]">
             {machine.category}
           </p>
-          <h3 className="mt-3 text-xl font-black">{machine.name}</h3>
+          <h3 className="mt-3 text-xl font-black tracking-tight transition group-hover:text-[#8a610f]">
+            {machine.name}
+          </h3>
           <p className="mt-2 text-sm leading-6 text-[#707274]">{machine.description}</p>
-          <span className="mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest">
-            View details <ArrowUpRight size={14} />
+          <span className="mt-auto inline-flex items-center gap-2 pt-5 text-xs font-bold uppercase tracking-widest">
+            View details
+            <span className="h-px w-5 bg-[#111] transition-all duration-300 group-hover:w-10 group-hover:bg-[#b27f19]" />
+            <ArrowUpRight size={14} />
           </span>
         </div>
       </Link>
@@ -632,8 +763,17 @@ export function MachineCard({ machine }: { machine: Machine }) {
 
 export function CTASection() {
   return (
-    <section className="bg-[#e6b84d] px-5 py-16 md:py-24">
-      <div className="mx-auto flex max-w-7xl flex-col justify-between gap-8 md:flex-row md:items-end lg:px-8">
+    <section className="relative overflow-hidden bg-[#e6b84d] px-5 py-16 md:py-24">
+      {/* subtle pattern + glow */}
+      <div
+        aria-hidden
+        className="absolute inset-0 opacity-[0.07] [background-image:linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)] [background-size:56px_56px]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-white/30 blur-3xl"
+      />
+      <div className="relative mx-auto flex max-w-7xl flex-col justify-between gap-8 md:flex-row md:items-end lg:px-8">
         <div>
           <p className="eyebrow text-[#111]/60">Let&apos;s get to work</p>
           <h2 className="mt-4 max-w-2xl text-4xl font-black tracking-[-0.05em] md:text-6xl">
@@ -646,15 +786,16 @@ export function CTASection() {
         <div className="flex flex-wrap gap-3">
           <Link
             href="/quote"
-            className="bg-[#111] px-6 py-4 text-xs font-bold uppercase tracking-widest text-white"
+            className="group inline-flex items-center gap-2 bg-[#111] px-6 py-4 text-xs font-bold uppercase tracking-widest text-white shadow-[0_12px_30px_-12px_rgba(0,0,0,0.6)] transition hover:bg-white hover:text-[#111]"
           >
             Request a Quote
+            <ArrowUpRight size={15} className="transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </Link>
           <a
             href={`tel:${phone}`}
-            className="border border-[#111]/30 px-6 py-4 text-xs font-bold uppercase tracking-widest text-[#111]"
+            className="inline-flex items-center gap-2 border border-[#111]/30 px-6 py-4 text-xs font-bold uppercase tracking-widest text-[#111] transition hover:border-[#111] hover:bg-[#111]/5"
           >
-            Call {phone}
+            <Phone size={15} /> Call {phone}
           </a>
         </div>
       </div>
@@ -675,9 +816,11 @@ export function FeatureStrip() {
         {features.map(([Icon, title, text]) => (
           <div
             key={title as string}
-            className="border-b border-black/10 px-5 py-8 last:border-0 md:border-b-0 md:border-r md:px-7 md:last:border-0"
+            className="group border-b border-black/10 px-5 py-8 transition duration-300 last:border-0 hover:bg-white md:border-b-0 md:border-r md:px-7 md:last:border-0"
           >
-            <Icon size={22} className="text-[#b27f19]" />
+            <span className="grid h-12 w-12 place-items-center border border-black/10 bg-white transition duration-300 group-hover:border-[#e6b84d] group-hover:bg-[#e6b84d]">
+              <Icon size={22} className="text-[#b27f19] transition group-hover:text-[#111]" />
+            </span>
             <h3 className="mt-5 font-bold">{title as string}</h3>
             <p className="mt-2 text-sm leading-6 text-[#707274]">{text as string}</p>
           </div>
@@ -687,33 +830,59 @@ export function FeatureStrip() {
   )
 }
 
+function Field({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    <label className="block">
+      <span className="mb-1.5 block text-xs font-semibold text-[#3d3f41]">{label}</span>
+      {children}
+    </label>
+  )
+}
+
 export function ContactForm({ quote = false }: { quote?: boolean }) {
   return (
-    <form className="space-y-4" onSubmit={(event) => event.preventDefault()}>
-      <div className="grid gap-4 md:grid-cols-2">
-        <input required placeholder="Full name" className="field" />
-        <input required placeholder="Phone number" className="field" />
-        <input type="email" placeholder="Email address" className="field" />
-        <input
-          placeholder={quote ? 'Company / organization' : 'Machine / equipment needed'}
-          className="field"
-        />
+    <form className="space-y-5" onSubmit={(event) => event.preventDefault()}>
+      <div className="grid gap-5 md:grid-cols-2">
+        <Field label="Full name *">
+          <input required placeholder="e.g. John Mukasa" className="field" />
+        </Field>
+        <Field label="Phone number *">
+          <input required placeholder="e.g. 0700 000 000" className="field" />
+        </Field>
+        <Field label="Email address">
+          <input type="email" placeholder="you@example.com" className="field" />
+        </Field>
+        <Field label={quote ? 'Company / organization' : 'Machine / equipment needed'}>
+          <input
+            placeholder={quote ? 'Company / organization' : 'Machine / equipment needed'}
+            className="field"
+          />
+        </Field>
       </div>
       {quote && (
-        <div className="grid gap-4 md:grid-cols-2">
-          <input placeholder="Machine required" className="field" />
-          <input type="number" min="1" placeholder="Quantity" className="field" />
+        <div className="grid gap-5 md:grid-cols-2">
+          <Field label="Machine required">
+            <input placeholder="e.g. Diesel Power Tiller" className="field" />
+          </Field>
+          <Field label="Quantity">
+            <input type="number" min="1" placeholder="1" className="field" />
+          </Field>
         </div>
       )}
-      <textarea
-        required
-        placeholder={quote ? 'Additional requirements' : 'Tell us how we can help'}
-        rows={5}
-        className="field resize-none"
-      />
-      <button className="w-full bg-[#111] px-6 py-4 text-xs font-bold uppercase tracking-widest text-white hover:bg-[#e6b84d] hover:text-[#111]">
+      <Field label={quote ? 'Additional requirements *' : 'Your message *'}>
+        <textarea
+          required
+          placeholder={quote ? 'Additional requirements' : 'Tell us how we can help'}
+          rows={5}
+          className="field resize-none"
+        />
+      </Field>
+      <button className="group w-full bg-[#111] px-6 py-4 text-xs font-bold uppercase tracking-widest text-white transition hover:bg-[#e6b84d] hover:text-[#111]">
         {quote ? 'Submit Request' : 'Send Inquiry'}{' '}
-        <ArrowUpRight className="ml-2 inline" size={14} />
+        <ArrowUpRight
+          className="ml-2 inline transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+          size={14}
+        />
       </button>
     </form>
   )

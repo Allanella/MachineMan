@@ -8,20 +8,25 @@ import { categories, imageUrls, machines, galleryImages, whatsapp } from '@/lib/
 
 const HERO_MS = 5500
 
-const heroImages = [
+/** Drops repeated photos so no image shows twice in the same slider. */
+function uniqueByUrl<T extends { url: string }>(items: T[]): T[] {
+  return items.filter((item, i, arr) => arr.findIndex((o) => o.url === item.url) === i)
+}
+
+const heroImages = uniqueByUrl([
   { url: imageUrls.generator, label: 'Heavy Power Generators' },
   { url: imageUrls.tiller, label: 'Agricultural Power Tillers' },
   { url: imageUrls.arquivo7, label: 'Industrial Engine Gearheads' },
   { url: imageUrls.arquivo8, label: 'High-Torque Drive Systems' },
   { url: imageUrls.machineExtra2, label: 'Silent Commercial Generators' },
-]
+])
 
-const showcaseImages = [
+const showcaseImages = uniqueByUrl([
   { url: imageUrls.tiller, label: 'Agricultural & Field Machinery' },
   { url: imageUrls.arquivo9, label: 'Heavy Field Cultivator Hardware' },
   { url: imageUrls.arquivo11, label: 'Precision Tiller Gearbox' },
   { url: imageUrls.arquivo13, label: 'Custom Industrial Supply' },
-]
+])
 
 /** Fades and lifts content into view once, when it scrolls on screen. */
 function Reveal({
