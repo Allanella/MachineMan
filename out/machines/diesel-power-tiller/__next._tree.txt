@@ -1,0 +1,3 @@
+:HL["/_next/static/chunks/13-7v_j7gw-4h.css","style"]
+:HL["https://hebbkx1anhila5yf.public.blob.vercel-storage.com/arquivo_1790674212804-QZb1sUoUjQ9h9Y5vKYnpknxlj1QubG.jpg","image"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"machines","param":null,"prefetchHints":4192,"slots":{"children":{"name":"slug","param":{"type":"d","key":"diesel-power-tiller","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"eH0lm4WLzEAr8kG06PLEs"}

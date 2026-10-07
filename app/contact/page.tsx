@@ -1,5 +1,5 @@
 import { Footer, Navbar, SectionHeading, ContactForm, CTASection } from '@/components/site'
-import { address, email, phone, whatsapp } from '@/lib/site-data'
+import { address, email, phone, whatsapp, googleMapsEmbedUrl } from '@/lib/site-data'
 import { MessageCircle, Phone, Mail, MapPin, Share2 } from 'lucide-react'
 
 export const metadata = { 
@@ -95,6 +95,20 @@ export default function ContactPage() {
                     </div>
                   </div>
                 </div>
+              </div>
+
+              {/* GOOGLE MAPS EMBED */}
+              <div className="mt-8 border border-black/10 bg-white p-2 shadow-sm">
+                <iframe 
+                  src={googleMapsEmbedUrl}
+                  width="100%" 
+                  height="300" 
+                  style={{ border: 0 }} 
+                  allowFullScreen={true} 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Machine Man Location"
+                ></iframe>
               </div>
 
               {/* STORE HOURS BANNER */}

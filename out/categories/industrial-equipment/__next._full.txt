@@ -1,0 +1,78 @@
+1:"$Sreact.fragment"
+2:I[39756,["/_next/static/chunks/3fntmmi971322.js"],"default"]
+3:I[37457,["/_next/static/chunks/3fntmmi971322.js"],"default"]
+5:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"ViewportBoundary"]
+b:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"MetadataBoundary"]
+d:I[68027,["/_next/static/chunks/3fntmmi971322.js"],"default",1]
+:HL["/_next/static/chunks/13-7v_j7gw-4h.css","style"]
+8:X
+0:{"P":null,"c":["","categories","industrial-equipment"],"q":"","i":false,"f":[[["",{"children":["categories",{"children":[["slug","industrial-equipment","d",[]],{"children":["__PAGE__",{},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4624],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/13-7v_j7gw-4h.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/3fntmmi971322.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"children":["$","body",null,{"className":"antialiased","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","script","script-0",{"src":"/_next/static/chunks/1v3qb7lxhaxg_.js","async":true,"nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$8"]},null,false,"$8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],null]}],false]],"m":"$undefined","G":["$d",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/13-7v_j7gw-4h.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"eH0lm4WLzEAr8kG06PLEs"}
+e:I[12673,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/1v3qb7lxhaxg_.js"],"Navbar"]
+f:I[12673,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/1v3qb7lxhaxg_.js"],"SectionHeading"]
+10:I[12673,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/1v3qb7lxhaxg_.js"],"MachineCard"]
+8:C
+11:T685,This is a stationary industrial diesel engine built to supply steady mechanical power to heavy machinery. It is a bare drive engine, meaning it is meant to be coupled to something else, such as a pump, mill, crusher or generator end, rather than to be used on its own. A heavy cast-iron block and a governed fuel system let it run for long hours at a constant speed, even when the load changes.
+
+Key Specifications:
+• Type: Stationary industrial diesel drive engine
+• Engine: 4-stroke, direct-injection diesel; water cooled
+• Power: Engines of this type are offered across a wide range of ratings, from about 10 HP single-cylinder units up to multi-cylinder engines; the rating of the unit in stock is confirmed on request
+• Output: Keyed shaft or flywheel end for belt pulleys or direct couplings
+• Starting: Hand crank or electric start, depending on the model
+• Mounting: Steel skid or base frame
+
+Core Features & Capabilities:
+• Constant-Speed Governor: A mechanical governor keeps engine speed steady when the load is applied or removed.
+• Built for Long Duty: Oversized cooling and lubrication are designed for long working days.
+• Flexible Power Take-Off: Can drive belts, pulleys, hydraulic pumps or be coupled directly to equipment.
+• Easy Maintenance: Simple mechanical design with accessible filters and oil points, so local mechanics can service it.
+
+Applications & Suitability:
+A dependable driver for water pumps, irrigation, grain and maize mills, stone crushers, concrete mixers, sawmills and custom-built site machinery.
+
+Note: Power rating and mounting details depend on the unit in stock. Contact us to confirm the specifications.12:T68f,This is a heavy-duty industrial diesel driver engine, meant for machines that have to work for long hours under constant load. It supplies steady mechanical power to equipment such as irrigation pumps, milling machines and crushers, and its strong low-speed torque keeps heavy, high-inertia equipment turning without stalling.
+
+Key Specifications:
+• Type: Heavy-duty industrial diesel driver engine
+• Engine: 4-stroke, direct-injection diesel; water cooled
+• Power: Driver engines of this type are available from about 10 HP to well over 50 HP; the rating of the unit in stock is confirmed on request
+• Starting: Electric starter with battery, or hand crank on smaller units
+• Drive connection: Keyed shaft, flywheel end or PTO flange, depending on the model
+• Frame: Rigid welded base frame with vibration-damping mounts
+
+Core Features & Capabilities:
+• Strong Low-Speed Torque: Holds speed under heavy loads, so pumps and mills keep running at working speed.
+• Continuous Duty: Built for long working days rather than short, occasional use.
+• Dust-Protected Intake: Heavy-duty air filtration protects the engine from dust on farms and work sites.
+• Fuel Economy: Direct fuel injection burns diesel efficiently, which lowers the running cost on long jobs.
+• Simple to Service: Spare parts and servicing for common diesel engines are easy to find locally.
+
+Applications & Suitability:
+Widely used to drive maize and grain mills, irrigation and water-supply pumps, borehole setups, rock crushers, sawmills and other agricultural and industrial processing equipment.
+
+Note: Power rating and drive connection depend on the unit in stock. Contact us to confirm.4:[["$","$Le",null,{}],["$","main",null,{"className":"pt-32","children":["$","section",null,{"className":"mx-auto max-w-7xl px-5 pb-24 lg:px-8","children":[["$","$Lf",null,{"eyebrow":"Category","title":"Industrial Equipment","text":"Heavy machinery and driving units built for demanding construction and industrial applications."}],["$","div",null,{"className":"mt-12 grid gap-5 md:grid-cols-3","children":[["$","$L10","heavy-duty-engine-unit",{"machine":{"slug":"heavy-duty-engine-unit","name":"Industrial Engine Unit","category":"Industrial Equipment","description":"High-torque industrial driver engine built for heavy machinery and continuous site work.","longDescription":"$11","highlights":["High-torque diesel engine","Built for continuous site work","Suitable as a driver for industrial equipment"],"idealFor":"Contractors and businesses powering heavy machinery","availability":"Available","image":"/arquivo_1790674384786.jpg","specs":{"Type":"Diesel Engine","Application":"Industrial Drivers"}}}],["$","$L10","industrial-diesel-driver-engine",{"machine":{"slug":"industrial-diesel-driver-engine","name":"Industrial Diesel Driver Engine","category":"Industrial Equipment","description":"Heavy-duty diesel driver engine for driving water pumps, agricultural machinery, and industrial gear.","longDescription":"$12","highlights":["Heavy-duty output for constant workload","Efficient air/water cooling structure","Direct-injection fuel economy"],"idealFor":"Pumping stations, stone crushers, and agricultural processing equipment","availability":"Available","image":"/IMG_6140.JPG.jpeg","specs":{"Type":"Industrial Diesel","Application":"Machinery Drive"}}}],"$L13"]}]]}]}],"$L14"]
+16:I[12673,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/1v3qb7lxhaxg_.js"],"Footer"]
+15:T550,Cannot find the exact machine you need? This service is for customers who want a specific machine, capacity or specification that we do not keep in stock. Tell us what the equipment must do and our team will help you find a suitable match through our supplier contacts, and advise on what to choose before you commit.
+
+What the service covers:
+• Service: Sourcing of specialised industrial, power and agricultural equipment to order
+• Typical requests: Generators in particular sizes, diesel engines, tillers, pumps and other machinery or hardware
+• Advice: Help matching capacity, power and engine type to your actual workload
+• Communication: We keep you updated on availability and options as we look
+
+How it works:
+• Tell Us What You Need: Share the type of machine, the capacity or size, and how you plan to use it.
+• We Search: We check our stock and contact suppliers for suitable options.
+• We Advise: We explain the options so you can choose the right specification and budget.
+• You Decide: You choose the machine that fits, with our help through the purchase.
+
+Applications & Suitability:
+Helpful for contractors, farmers, workshops and businesses with specialised or hard-to-find equipment needs.
+
+Note: Availability, price and delivery time depend on the machine and supplier. Contact us with your requirements and we will confirm.13:["$","$L10","specialist-equipment-sourcing",{"machine":{"slug":"specialist-equipment-sourcing","name":"Specialist Hardware Sourcing","category":"Industrial Equipment","description":"Tell us what specific machine or spec you need and our procurement team will assist you directly.","longDescription":"$15","highlights":["Tell us the machine or specification","We source through our supplier network","Advice on capacity before you buy"],"idealFor":"Specialised or hard-to-find equipment requests","availability":"Contact for Availability","image":"/arquivo_1790675961881.jpg","specs":{"Custom":"On-Demand Sourcing"}}}]
+14:["$","$L16",null,{}]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+7:null
+c:[["$","title","0",{"children":"Machine Man Uganda | Quality Machines & Equipment in Kampala"}],["$","meta","1",{"name":"description","content":"Machine Man / Machineman Hardware supplies quality machines and equipment in Kampala, Uganda."}]]

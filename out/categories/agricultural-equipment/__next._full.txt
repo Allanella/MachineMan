@@ -1,0 +1,60 @@
+1:"$Sreact.fragment"
+2:I[39756,["/_next/static/chunks/3fntmmi971322.js"],"default"]
+3:I[37457,["/_next/static/chunks/3fntmmi971322.js"],"default"]
+5:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"ViewportBoundary"]
+b:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"MetadataBoundary"]
+d:I[68027,["/_next/static/chunks/3fntmmi971322.js"],"default",1]
+:HL["/_next/static/chunks/13-7v_j7gw-4h.css","style"]
+8:X
+0:{"P":null,"c":["","categories","agricultural-equipment"],"q":"","i":false,"f":[[["",{"children":["categories",{"children":[["slug","agricultural-equipment","d",[]],{"children":["__PAGE__",{},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4624],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/13-7v_j7gw-4h.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/3fntmmi971322.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"children":["$","body",null,{"className":"antialiased","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","script","script-0",{"src":"/_next/static/chunks/1v3qb7lxhaxg_.js","async":true,"nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$8"]},null,false,"$8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],null]}],false]],"m":"$undefined","G":["$d",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/13-7v_j7gw-4h.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"eH0lm4WLzEAr8kG06PLEs"}
+e:I[12673,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/1v3qb7lxhaxg_.js"],"Navbar"]
+f:I[12673,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/1v3qb7lxhaxg_.js"],"SectionHeading"]
+10:I[12673,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/1v3qb7lxhaxg_.js"],"MachineCard"]
+8:C
+11:T72f,This is a diesel power tiller (two-wheel tractor) built to take the hard labour out of land preparation. A single-cylinder, water-cooled diesel engine drives the wheels and the rotary tiller through a heavy-duty gearbox, turning hard or weedy ground into a fine seedbed far faster than hand tools. The same power unit can also pull a trailer or run a pump, which makes it one of the most useful machines a small or medium farm can own.
+
+Key Specifications (typical for 12 HP class diesel power tillers):
+• Type: Walking-type two-wheel diesel power tiller
+• Engine: Single-cylinder, horizontal, 4-stroke, water-cooled, direct-injection diesel, typically rated at about 12 HP
+• Transmission: Multi-speed gearbox, commonly 6 forward and 2 reverse gears
+• Rotary tiller: Working width of about 600 mm, working depth of about 150 mm, with around 18 blades
+• Fuel: Tank of roughly 9 to 12 litres; consumption is commonly around 1.2 to 1.4 litres per hour
+• Weight: Roughly 370 to 480 kg depending on attachments
+
+Core Features & Capabilities:
+• High-Torque Gear Drive: The gearbox puts the engine's low-speed torque to work in heavy soil without belt slip.
+• Multi-Purpose Use: Besides tilling, it can be fitted with a plough, trailer, water pump or other attachments to spread its use over the whole season.
+• Low Running Cost: A water-cooled diesel engine runs cooler and uses less fuel than a petrol tiller doing the same work.
+• Durable Build: Robust steel frame and large-tread tyres give traction on wet or uneven fields.
+
+Applications & Suitability:
+Suited to smallholder and commercial farms, vegetable and maize growers, rice and paddy fields, orchards and farm contractors preparing land for planting.
+
+Note: Engine size and attachments vary by unit. Contact us to confirm the specifications of the tiller in stock.12:T5e7,This is a rotary tiller and cultivator built for efficient soil preparation, weed control and seedbed making. Its powered rotating blades cut through the soil and mix it in a single pass, leaving a fine, even bed that is ready for planting, so it covers ground much faster than hoes or ploughs.
+
+Key Specifications:
+• Type: Diesel-powered rotary tiller / cultivator
+• Engine: Single-cylinder 4-stroke diesel; the exact size depends on the model
+• Working width: Commonly between about 600 mm and 1,200 mm, depending on model
+• Working depth: Commonly around 100 to 150 mm, adjustable
+• Blades: Hardened steel rotary blades on a tine shaft, with a rear guard
+• Controls: Handlebar with throttle, clutch and gear levers
+
+Core Features & Capabilities:
+• One-Pass Tilling: Breaks up soil, cuts weeds and mixes in crop residue or manure in a single pass.
+• Adjustable Depth: A depth skid or rear stake sets how deep the blades work, for shallow weeding or deeper bed preparation.
+• Operator Protection: Side guards and a rear flap reduce flying soil and stones.
+• Gear Selection: Lower gears give more torque in hard ground, higher gears suit light weeding and levelling.
+• Diesel Economy: Good fuel economy for a full day in the field.
+
+Applications & Suitability:
+Suited to vegetable farms, maize and bean fields, tea and coffee plantations, nurseries, greenhouses and gardens.
+
+Note: Working width and engine size vary by model. Contact us to confirm the specifications of the unit in stock.4:[["$","$Le",null,{}],["$","main",null,{"className":"pt-32","children":["$","section",null,{"className":"mx-auto max-w-7xl px-5 pb-24 lg:px-8","children":[["$","$Lf",null,{"eyebrow":"Category","title":"Agricultural Equipment","text":"Practical, high-yield farm machinery and power tillers engineered for land cultivation."}],["$","div",null,{"className":"mt-12 grid gap-5 md:grid-cols-3","children":[["$","$L10","diesel-power-tiller",{"machine":{"slug":"diesel-power-tiller","name":"Diesel Power Tiller","category":"Agricultural Equipment","description":"Versatile tilling equipment built for heavy soil preparation and practical agricultural work.","longDescription":"$11","highlights":["Diesel engine with strong low-end torque","Gear-driven transmission","Handles heavy soil preparation"],"idealFor":"Smallholder and commercial farms preparing land for planting","availability":"Limited Availability","image":"https://hebbkx1anhila5yf.public.blob.vercel-storage.com/arquivo_1790674212804-QZb1sUoUjQ9h9Y5vKYnpknxlj1QubG.jpg","specs":{"Engine":"Diesel","Application":"Agriculture","Drive":"Gear Driven"}}}],["$","$L10","multi-purpose-rotary-tiller",{"machine":{"slug":"multi-purpose-rotary-tiller","name":"Rotary Tiller Machine","category":"Agricultural Equipment","description":"Rugged rotary tiller unit engineered for high-efficiency field tilling and cultivation.","longDescription":"$12","highlights":["Rotary blades for fine, even soil","Diesel powered","Versatile for tilling and cultivation"],"idealFor":"Growers who want to cover more ground in less time","availability":"Limited Availability","image":"/IMG_6111.PNG","specs":{"Fuel":"Diesel","Category":"Land Preparation"}}}]]}]]}]}],"$L13"]
+14:I[12673,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/1v3qb7lxhaxg_.js"],"Footer"]
+13:["$","$L14",null,{}]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+7:null
+c:[["$","title","0",{"children":"Machine Man Uganda | Quality Machines & Equipment in Kampala"}],["$","meta","1",{"name":"description","content":"Machine Man / Machineman Hardware supplies quality machines and equipment in Kampala, Uganda."}]]

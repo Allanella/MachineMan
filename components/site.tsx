@@ -530,10 +530,24 @@ export function Navbar() {
 }
 
 export function Footer() {
+  const [showDevContacts, setShowDevContacts] = useState(false)
+  const devRef = useRef<HTMLDivElement>(null)
+
   const developerPhones = [
     { label: '0700966715', href: 'tel:+256700966715' },
     { label: '0785639406', href: 'tel:+256785639406' },
   ]
+
+  // Close the popover when clicking outside
+  useEffect(() => {
+    const onDown = (e: MouseEvent) => {
+      if (devRef.current && !devRef.current.contains(e.target as Node)) {
+        setShowDevContacts(false)
+      }
+    }
+    document.addEventListener('mousedown', onDown)
+    return () => document.removeEventListener('mousedown', onDown)
+  }, [])
 
   return (
     <footer className="relative overflow-hidden bg-[#111] text-white">
@@ -659,21 +673,36 @@ export function Footer() {
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-5 py-6 text-xs text-white/40 lg:flex-row lg:px-8">
           <p>© 2026 Machine Man / Machineman Hardware. All rights reserved.</p>
 
-          <p className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-white/50">
+          {/* DEVELOPER CREDIT WITH HIDDEN PHONE NUMBERS */}
+          <div ref={devRef} className="relative flex items-center gap-2 text-white/50">
             <Code2 size={14} className="text-[#e6b84d]" />
-            <span>
-              Developed by <strong className="font-semibold text-white/80">Baliddawa Allan</strong>
-            </span>
-            <span className="hidden text-white/20 sm:inline">·</span>
-            {developerPhones.map((p, i) => (
-              <span key={p.href} className="flex items-center gap-2">
-                <a href={p.href} className="transition hover:text-[#e6b84d]">
-                  {p.label}
-                </a>
-                {i < developerPhones.length - 1 && <span className="text-white/20">/</span>}
-              </span>
-            ))}
-          </p>
+            <span>Developed by</span>
+            <button
+              type="button"
+              onClick={() => setShowDevContacts((v) => !v)}
+              aria-expanded={showDevContacts}
+              className="font-semibold text-white/80 underline decoration-dotted underline-offset-2 transition hover:text-[#e6b84d]"
+            >
+              Baliddawa Allan
+            </button>
+
+            {showDevContacts && (
+              <div className="absolute bottom-full left-1/2 z-10 mb-3 w-48 -translate-x-1/2 border border-white/15 bg-[#1a1a1a] p-2 shadow-2xl">
+                <p className="mb-1.5 px-2 text-[10px] font-bold uppercase tracking-widest text-white/40">
+                  Developer contacts
+                </p>
+                {developerPhones.map((p) => (
+                  <a
+                    key={p.href}
+                    href={p.href}
+                    className="block px-2 py-1.5 text-xs text-white/70 transition hover:bg-[#e6b84d] hover:text-[#111]"
+                  >
+                    {p.label}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
 
           <button
             type="button"
@@ -750,6 +779,12 @@ export function MachineCard({ machine }: { machine: Machine }) {
             {machine.name}
           </h3>
           <p className="mt-2 text-sm leading-6 text-[#707274]">{machine.description}</p>
+
+          {/* PRICE DISPLAY */}
+          <p className="mt-4 text-lg font-black tracking-tight text-[#b27f19]">
+            {machine.price}
+          </p>
+
           <span className="mt-auto inline-flex items-center gap-2 pt-5 text-xs font-bold uppercase tracking-widest">
             View details
             <span className="h-px w-5 bg-[#111] transition-all duration-300 group-hover:w-10 group-hover:bg-[#b27f19]" />

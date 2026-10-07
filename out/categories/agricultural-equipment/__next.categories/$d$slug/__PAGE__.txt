@@ -1,0 +1,72 @@
+1:"$Sreact.fragment"
+2:I[12673,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/1v3qb7lxhaxg_.js"],"Navbar"]
+3:I[12673,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/1v3qb7lxhaxg_.js"],"SectionHeading"]
+4:I[12673,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/1v3qb7lxhaxg_.js"],"MachineCard"]
+5:T72f,This is a diesel power tiller (two-wheel tractor) built to take the hard labour out of land preparation. A single-cylinder, water-cooled diesel engine drives the wheels and the rotary tiller through a heavy-duty gearbox, turning hard or weedy ground into a fine seedbed far faster than hand tools. The same power unit can also pull a trailer or run a pump, which makes it one of the most useful machines a small or medium farm can own.
+
+Key Specifications (typical for 12 HP class diesel power tillers):
+• Type: Walking-type two-wheel diesel power tiller
+• Engine: Single-cylinder, horizontal, 4-stroke, water-cooled, direct-injection diesel, typically rated at about 12 HP
+• Transmission: Multi-speed gearbox, commonly 6 forward and 2 reverse gears
+• Rotary tiller: Working width of about 600 mm, working depth of about 150 mm, with around 18 blades
+• Fuel: Tank of roughly 9 to 12 litres; consumption is commonly around 1.2 to 1.4 litres per hour
+• Weight: Roughly 370 to 480 kg depending on attachments
+
+Core Features & Capabilities:
+• High-Torque Gear Drive: The gearbox puts the engine's low-speed torque to work in heavy soil without belt slip.
+• Multi-Purpose Use: Besides tilling, it can be fitted with a plough, trailer, water pump or other attachments to spread its use over the whole season.
+• Low Running Cost: A water-cooled diesel engine runs cooler and uses less fuel than a petrol tiller doing the same work.
+• Durable Build: Robust steel frame and large-tread tyres give traction on wet or uneven fields.
+
+Applications & Suitability:
+Suited to smallholder and commercial farms, vegetable and maize growers, rice and paddy fields, orchards and farm contractors preparing land for planting.
+
+Note: Engine size and attachments vary by unit. Contact us to confirm the specifications of the tiller in stock.6:T5e7,This is a rotary tiller and cultivator built for efficient soil preparation, weed control and seedbed making. Its powered rotating blades cut through the soil and mix it in a single pass, leaving a fine, even bed that is ready for planting, so it covers ground much faster than hoes or ploughs.
+
+Key Specifications:
+• Type: Diesel-powered rotary tiller / cultivator
+• Engine: Single-cylinder 4-stroke diesel; the exact size depends on the model
+• Working width: Commonly between about 600 mm and 1,200 mm, depending on model
+• Working depth: Commonly around 100 to 150 mm, adjustable
+• Blades: Hardened steel rotary blades on a tine shaft, with a rear guard
+• Controls: Handlebar with throttle, clutch and gear levers
+
+Core Features & Capabilities:
+• One-Pass Tilling: Breaks up soil, cuts weeds and mixes in crop residue or manure in a single pass.
+• Adjustable Depth: A depth skid or rear stake sets how deep the blades work, for shallow weeding or deeper bed preparation.
+• Operator Protection: Side guards and a rear flap reduce flying soil and stones.
+• Gear Selection: Lower gears give more torque in hard ground, higher gears suit light weeding and levelling.
+• Diesel Economy: Good fuel economy for a full day in the field.
+
+Applications & Suitability:
+Suited to vegetable farms, maize and bean fields, tea and coffee plantations, nurseries, greenhouses and gardens.
+
+Note: Working width and engine size vary by model. Contact us to confirm the specifications of the unit in stock.b:X
+10:X
+10:C
+0:{"buildId":"eH0lm4WLzEAr8kG06PLEs","data":[{"rsc":["$","$1","c",{"children":[[["$","$L2",null,{}],["$","main",null,{"className":"pt-32","children":["$","section",null,{"className":"mx-auto max-w-7xl px-5 pb-24 lg:px-8","children":[["$","$L3",null,{"eyebrow":"Category","title":"Agricultural Equipment","text":"Practical, high-yield farm machinery and power tillers engineered for land cultivation."}],["$","div",null,{"className":"mt-12 grid gap-5 md:grid-cols-3","children":[["$","$L4","diesel-power-tiller",{"machine":{"slug":"diesel-power-tiller","name":"Diesel Power Tiller","category":"Agricultural Equipment","description":"Versatile tilling equipment built for heavy soil preparation and practical agricultural work.","longDescription":"$5","highlights":["Diesel engine with strong low-end torque","Gear-driven transmission","Handles heavy soil preparation"],"idealFor":"Smallholder and commercial farms preparing land for planting","availability":"Limited Availability","image":"https://hebbkx1anhila5yf.public.blob.vercel-storage.com/arquivo_1790674212804-QZb1sUoUjQ9h9Y5vKYnpknxlj1QubG.jpg","specs":{"Engine":"Diesel","Application":"Agriculture","Drive":"Gear Driven"}}}],["$","$L4","multi-purpose-rotary-tiller",{"machine":{"slug":"multi-purpose-rotary-tiller","name":"Rotary Tiller Machine","category":"Agricultural Equipment","description":"Rugged rotary tiller unit engineered for high-efficiency field tilling and cultivation.","longDescription":"$6","highlights":["Rotary blades for fine, even soil","Diesel powered","Versatile for tilling and cultivation"],"idealFor":"Growers who want to cover more ground in less time","availability":"Limited Availability","image":"/IMG_6111.PNG","specs":{"Fuel":"Diesel","Category":"Land Preparation"}}}]]}]]}]}],"$L7"],["$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"},{"rsc":"$L13","isPartial":"$@14","staleTime":"$b","varyParams":null}],"isUpgradeableISRFallback":false,"a":"$@15","rootVaryParams":null,"needsRuntimeRequest":"$@16"}
+17:I[12673,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/1v3qb7lxhaxg_.js"],"Footer"]
+18:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"OutletBoundary"]
+19:"$Sreact.suspense"
+1b:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"ViewportBoundary"]
+1c:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"MetadataBoundary"]
+1d:I[39756,["/_next/static/chunks/3fntmmi971322.js"],"default"]
+1e:I[37457,["/_next/static/chunks/3fntmmi971322.js"],"default"]
+:HL["/_next/static/chunks/13-7v_j7gw-4h.css","style"]
+7:["$","$L17",null,{}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/1v3qb7lxhaxg_.js","async":true}]
+9:["$","$L18",null,{"children":["$","$19",null,{"name":"Next.MetadataOutlet","children":"$@1a"}]}]
+c:["$","$1","h",{"children":[null,["$","$L1b",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L1c",null,{"children":["$","$19",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Machine Man Uganda | Quality Machines & Equipment in Kampala"}],["$","meta","1",{"name":"description","content":"Machine Man / Machineman Hardware supplies quality machines and equipment in Kampala, Uganda."}]]}]}]}],null]}]
+e:["$","$1","c",{"children":[null,["$","$L1d",null,{"parallelRouterKey":"children","template":["$","$L1e",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1d",null,{"parallelRouterKey":"children","template":["$","$L1e",null,{}]}]]}]
+13:["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/13-7v_j7gw-4h.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/3fntmmi971322.js","async":true}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"children":["$","body",null,{"className":"antialiased","suppressHydrationWarning":true,"children":["$","$L1d",null,{"parallelRouterKey":"children","template":["$","$L1e",null,{}],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]]}]}]}]]}]
+1a:null
+16:true
+b:300
+b:C
+15:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+14:"$undefined"
+a:"$undefined"

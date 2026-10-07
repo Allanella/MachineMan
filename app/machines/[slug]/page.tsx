@@ -3,6 +3,96 @@ import { notFound } from 'next/navigation'
 import { ArrowUpRight } from 'lucide-react'
 import { Footer, MachineCard, Navbar, SectionHeading } from '@/components/site'
 import { getMachine, machines, phone } from '@/lib/site-data'
-export function generateStaticParams() { return machines.map(({ slug }) => ({ slug })) }
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) { const machine = getMachine((await params).slug); return { title: machine ? `${machine.name} | Machine Man Uganda` : 'Machine | Machine Man Uganda', description: machine?.description } }
-export default async function MachineDetail({ params }: { params: Promise<{ slug: string }> }) { const machine = getMachine((await params).slug); if (!machine) notFound(); return <><Navbar /><main className="pt-28"><section className="mx-auto grid max-w-7xl gap-10 px-5 py-12 lg:grid-cols-2 lg:px-8 lg:py-20"><div className="aspect-square bg-[#f3f3f1]"><img src={machine.image} alt={machine.name} className="h-full w-full object-contain mix-blend-multiply" /></div><div className="self-center"><p className="eyebrow text-[#b27f19]">{machine.category}</p><h1 className="mt-5 text-5xl font-black tracking-[-0.06em] md:text-7xl">{machine.name}</h1><span className="mt-6 inline-block bg-[#e6b84d] px-3 py-2 text-[10px] font-bold uppercase tracking-widest">{machine.availability}</span><p className="mt-7 text-lg leading-8 text-[#686b6d]">{machine.description}</p><div className="mt-8 border-y border-black/10 py-6">{machine.specs && Object.entries(machine.specs).map(([key, value]) => <div key={key} className="flex justify-between border-b border-black/10 py-3 text-sm last:border-0"><span className="text-[#777]">{key}</span><strong>{value}</strong></div>)}</div><div className="mt-8 flex flex-wrap gap-3"><Link href="/quote" className="bg-[#111] px-6 py-4 text-xs font-bold uppercase tracking-widest text-white">Request a Quote <ArrowUpRight className="ml-2 inline" size={14} /></Link><a href={`tel:${phone}`} className="border border-black/20 px-6 py-4 text-xs font-bold uppercase tracking-widest">Call Us</a></div></div></section><section className="mx-auto max-w-7xl px-5 pb-24 lg:px-8"><SectionHeading eyebrow="You may also like" title="Related machines" /><div className="mt-10 grid gap-5 md:grid-cols-3">{machines.filter((item) => item.slug !== machine.slug).slice(0,3).map((item) => <MachineCard key={item.slug} machine={item} />)}</div></section></main><Footer /></> }
+
+export function generateStaticParams() {
+  return machines.map(({ slug }) => ({ slug }))
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const machine = getMachine((await params).slug)
+  return {
+    title: machine ? `${machine.name} | Machine Man Uganda` : 'Machine | Machine Man Uganda',
+    description: machine?.description,
+  }
+}
+
+export default async function MachineDetail({ params }: { params: Promise<{ slug: string }> }) {
+  const machine = getMachine((await params).slug)
+  if (!machine) notFound()
+
+  return (
+    <>
+      <Navbar />
+      <main className="pt-28">
+        <section className="mx-auto grid max-w-7xl gap-10 px-5 py-12 lg:grid-cols-2 lg:px-8 lg:py-20">
+          <div className="aspect-square bg-[#f3f3f1]">
+            <img
+              src={machine.image}
+              alt={machine.name}
+              className="h-full w-full object-contain mix-blend-multiply"
+            />
+          </div>
+          <div className="self-center">
+            <p className="eyebrow text-[#b27f19]">{machine.category}</p>
+            <h1 className="mt-5 text-5xl font-black tracking-[-0.06em] md:text-7xl">
+              {machine.name}
+            </h1>
+
+            {/* AVAILABILITY + PRICE */}
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <span className="inline-block bg-[#e6b84d] px-3 py-2 text-[10px] font-bold uppercase tracking-widest">
+                {machine.availability}
+              </span>
+              <span className="inline-block border border-[#b27f19]/30 bg-[#fdf8ea] px-4 py-2 text-sm font-black tracking-tight text-[#b27f19]">
+                {machine.price}
+              </span>
+            </div>
+
+            <p className="mt-7 text-lg leading-8 text-[#686b6d]">{machine.description}</p>
+
+            <div className="mt-8 border-y border-black/10 py-6">
+              {machine.specs &&
+                Object.entries(machine.specs).map(([key, value]) => (
+                  <div
+                    key={key}
+                    className="flex justify-between border-b border-black/10 py-3 text-sm last:border-0"
+                  >
+                    <span className="text-[#777]">{key}</span>
+                    <strong>{value}</strong>
+                  </div>
+                ))}
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href="/quote"
+                className="bg-[#111] px-6 py-4 text-xs font-bold uppercase tracking-widest text-white"
+              >
+                Request a Quote <ArrowUpRight className="ml-2 inline" size={14} />
+              </Link>
+              <a
+                href={`tel:${phone}`}
+                className="border border-black/20 px-6 py-4 text-xs font-bold uppercase tracking-widest"
+              >
+                Call Us
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-5 pb-24 lg:px-8">
+          <SectionHeading eyebrow="You may also like" title="Related machines" />
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {machines
+              .filter((item) => item.slug !== machine.slug)
+              .slice(0, 3)
+              .map((item) => (
+                <MachineCard key={item.slug} machine={item} />
+              ))}
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
+  )
+}

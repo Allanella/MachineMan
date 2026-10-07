@@ -1,0 +1,82 @@
+1:"$Sreact.fragment"
+2:I[39756,["/_next/static/chunks/3fntmmi971322.js"],"default"]
+3:I[37457,["/_next/static/chunks/3fntmmi971322.js"],"default"]
+5:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"ViewportBoundary"]
+b:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"MetadataBoundary"]
+d:I[68027,["/_next/static/chunks/3fntmmi971322.js"],"default",1]
+:HL["/_next/static/chunks/13-7v_j7gw-4h.css","style"]
+8:X
+0:{"P":null,"c":["","categories","power-equipment"],"q":"","i":false,"f":[[["",{"children":["categories",{"children":[["slug","power-equipment","d",[]],{"children":["__PAGE__",{},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4624],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/13-7v_j7gw-4h.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/3fntmmi971322.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"children":["$","body",null,{"className":"antialiased","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","script","script-0",{"src":"/_next/static/chunks/1v3qb7lxhaxg_.js","async":true,"nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$8"]},null,false,"$8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],null]}],false]],"m":"$undefined","G":["$d",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/13-7v_j7gw-4h.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"eH0lm4WLzEAr8kG06PLEs"}
+e:I[12673,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/1v3qb7lxhaxg_.js"],"Navbar"]
+f:I[12673,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/1v3qb7lxhaxg_.js"],"SectionHeading"]
+10:I[12673,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/1v3qb7lxhaxg_.js"],"MachineCard"]
+8:C
+11:T83b,This is a Perkins-powered enclosed (soundproof) diesel generator set, built for places that need dependable electricity for long hours, or automatic standby cover when the grid fails. Perkins is one of the best-known names in diesel engines, and sets built around them are valued for steady output, good fuel economy and easy access to spare parts. The steel canopy protects the engine and alternator from rain and dust and keeps noise down, so the set can sit beside buildings as well as on open sites.
+
+Key Specifications:
+• Type: Enclosed, sound-attenuated diesel generator set
+• Engine: Perkins liquid-cooled diesel engine
+• Output: Sets in this class are commonly offered from about 15 kVA up to 50 kVA and above; the exact rating of the unit in stock is confirmed on request
+• Output voltage: 230/240 V single phase and 400/415 V three phase, 50 Hz
+• Enclosure: Weather-resistant steel canopy with acoustic lining and corrosion-resistant coating
+• Controls: Digital controller showing voltage, frequency, oil pressure, engine temperature and running hours
+
+Core Features & Capabilities:
+• Sound-Attenuated Canopy: Acoustic lining reduces operating noise, which matters in towns, clinics, offices and residential areas.
+• Standby-Ready: Can be paired with an automatic transfer switch (ATS) so the load moves to the generator automatically when mains power drops.
+• Built-In Protections: Controllers on sets of this type normally shut the engine down on low oil pressure, high coolant temperature and overload.
+• Weather Protection: Sealed, lockable access doors keep rain, dust and tampering away from the engine and alternator.
+• Service Friendly: Filters, dipsticks and the battery are reachable through the canopy doors, so routine servicing is quick.
+
+Applications & Suitability:
+Well suited to commercial buildings, construction sites, workshops, clinics and hospitals, schools, hotels, factories and farms that need either continuous power or reliable backup.
+
+Note: Exact power rating and specifications depend on the unit in stock. Contact us to confirm before you order.12:T6ab,This is a compact, low-noise diesel generator for places where a loud, open-frame set is not an option. A sound-insulated canopy and a fuel-efficient diesel engine make it a comfortable neighbour to shops, offices, clinics and guest houses, while the compact body and wheels make it easy to move and position.
+
+Key Specifications:
+• Type: Compact soundproof (silent) diesel generator
+• Power: Sets in this class are commonly rated between about 3 kVA and 10 kVA; the rating of the unit in stock is confirmed on request
+• Voltage: 230 V single phase, 50 Hz, with a 12 V DC battery-charging output on most models
+• Noise: Canopy sets of this size usually run at roughly 65 to 75 dB(A) measured at 7 metres
+• Engine: Diesel, air-cooled or water-cooled depending on size
+• Mobility: Frame with wheels and a lifting handle
+
+Core Features & Capabilities:
+• Low-Noise Canopy: Sound insulation lets it run near people without the noise of an open set.
+• Stable Output: An automatic voltage regulator (AVR) holds the voltage steady, which protects computers, tills, lighting and other sensitive equipment.
+• Digital Display: Shows voltage, frequency and running hours, and helps you plan maintenance.
+• Low Fuel Use: Diesel engines are generally more fuel-efficient than petrol sets for long running periods.
+• Built-In Safety: Low-oil shutdown and overload protection guard the engine and the connected equipment.
+
+Applications & Suitability:
+Suited to shops, offices, salons, restaurants and cafes, clinics, guest houses, events, mobile businesses and small job sites that need quiet backup power.
+
+Note: Exact power rating and noise level depend on the model in stock. Contact us to confirm.4:[["$","$Le",null,{}],["$","main",null,{"className":"pt-32","children":["$","section",null,{"className":"mx-auto max-w-7xl px-5 pb-24 lg:px-8","children":[["$","$Lf",null,{"eyebrow":"Category","title":"Power Equipment","text":"Heavy-duty generators and dependable power solutions for continuous and backup energy."}],["$","div",null,{"className":"mt-12 grid gap-5 md:grid-cols-3","children":[["$","$L10","perkins-generator",{"machine":{"slug":"perkins-generator","name":"Perkins Generator","category":"Power Equipment","description":"A robust enclosed generator for dependable heavy-duty power where it matters.","longDescription":"$11","highlights":["Perkins diesel engine","Enclosed canopy for site protection","Suited to continuous or standby duty"],"idealFor":"Construction sites, workshops, farms and commercial premises","availability":"Available","image":"https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_6021.JPG-Xrl0eZEmn4ffWvdVXgocgEsxGWoVBb.jpeg","specs":{"Engine":"Perkins","Application":"Power generation","Duty":"Continuous / Standby"}}}],["$","$L10","compact-power-generator",{"machine":{"slug":"compact-power-generator","name":"Compact Silent Generator","category":"Power Equipment","description":"Fuel-efficient, low-noise power unit optimized for commercial and jobsite back-up power.","longDescription":"$12","highlights":["Low-noise silent operation","Fuel-efficient diesel running","Compact footprint that is easy to place"],"idealFor":"Shops, offices, guest houses and jobsite back-up power","availability":"Available","image":"/IMG_6136.JPG.jpeg","specs":{"Type":"Silent Diesel","Noise Level":"Low DB"}}}],"$L13"]}]]}]}],"$L14"]
+16:I[12673,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/1v3qb7lxhaxg_.js"],"Footer"]
+15:T656,This is a rugged open-frame site generator built to cope with the dust, knocks and weather of active work sites. A strong tubular steel frame protects the engine and alternator, and outlets for both single-phase and three-phase equipment let it run site lighting, power tools and small machinery from one unit.
+
+Key Specifications:
+• Type: Open-frame heavy-duty diesel site generator
+• Power: Units of this type are commonly rated from about 5 kVA to 10 kVA; the rating of the unit in stock is confirmed on request
+• Outlets: 230 V single-phase sockets and 400 V three-phase industrial sockets on most models
+• Frame: Tubular steel roll frame with vibration-damping engine mounts
+• Protection: Circuit breakers and overload protection on the control panel
+• Fuel: Large diesel tank for long running between refuels
+
+Core Features & Capabilities:
+• Rugged Roll Frame: Protects the engine, alternator and control panel from knocks and handling on site.
+• Weather-Protected Sockets: Covered outlets help keep splashes and dust out of the electrical connections.
+• Long Run Time: A large fuel tank supports full working days without constant refuelling.
+• Strong Alternator: Copper-wound alternator copes with the heavy starting current of motors and power tools.
+• Easy Handling: Lifting point and handles make it easier to load, move and position.
+
+Applications & Suitability:
+Suited to construction sites, road works, steel fabrication and welding workshops, mining camps, farms and emergency power restoration.
+
+Note: Exact power rating and outlets depend on the unit in stock. Contact us to confirm.13:["$","$L10","heavy-duty-site-power-unit",{"machine":{"slug":"heavy-duty-site-power-unit","name":"Heavy Duty Site Power Unit","category":"Power Equipment","description":"Multi-purpose site power unit engineered for harsh jobsite environments.","longDescription":"$15","highlights":["Reinforced steel frame housing","Multi-voltage distribution outputs","Heavy-duty alternator"],"idealFor":"Construction sites and outdoor commercial setups","availability":"Available","image":"/IMG_6141.JPG.jpeg","specs":{"Type":"Power Unit","Application":"Site Electricity"}}}]
+14:["$","$L16",null,{}]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+7:null
+c:[["$","title","0",{"children":"Machine Man Uganda | Quality Machines & Equipment in Kampala"}],["$","meta","1",{"name":"description","content":"Machine Man / Machineman Hardware supplies quality machines and equipment in Kampala, Uganda."}]]

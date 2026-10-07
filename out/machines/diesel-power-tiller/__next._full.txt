@@ -1,0 +1,85 @@
+1:"$Sreact.fragment"
+2:I[39756,["/_next/static/chunks/3fntmmi971322.js"],"default"]
+3:I[37457,["/_next/static/chunks/3fntmmi971322.js"],"default"]
+5:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+9:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"ViewportBoundary"]
+b:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"MetadataBoundary"]
+d:I[68027,["/_next/static/chunks/3fntmmi971322.js"],"default",1]
+:HL["/_next/static/chunks/13-7v_j7gw-4h.css","style"]
+8:X
+0:{"P":null,"c":["","machines","diesel-power-tiller"],"q":"","i":false,"f":[[["",{"children":["machines",{"children":[["slug","diesel-power-tiller","d",[]],{"children":["__PAGE__",{},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4624],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/13-7v_j7gw-4h.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/3fntmmi971322.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"children":["$","body",null,{"className":"antialiased","suppressHydrationWarning":true,"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","script","script-0",{"src":"/_next/static/chunks/1v3qb7lxhaxg_.js","async":true,"nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,null]},null,false,"$8"]},null,false,"$8"]},null,false,null],["$","$1","h",{"children":[null,["$","$L9",null,{"children":"$La"}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$Lc"}]}]}],null]}],false]],"m":"$undefined","G":["$d",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/13-7v_j7gw-4h.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"eH0lm4WLzEAr8kG06PLEs"}
+e:I[12673,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/1v3qb7lxhaxg_.js"],"Navbar"]
+f:I[22016,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/1v3qb7lxhaxg_.js"],""]
+10:I[5014,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/1v3qb7lxhaxg_.js"],"default"]
+11:I[12673,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/1v3qb7lxhaxg_.js"],"SectionHeading"]
+12:I[12673,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/1v3qb7lxhaxg_.js"],"MachineCard"]
+:HL["https://hebbkx1anhila5yf.public.blob.vercel-storage.com/arquivo_1790674212804-QZb1sUoUjQ9h9Y5vKYnpknxlj1QubG.jpg","image"]
+8:C
+13:T83b,This is a Perkins-powered enclosed (soundproof) diesel generator set, built for places that need dependable electricity for long hours, or automatic standby cover when the grid fails. Perkins is one of the best-known names in diesel engines, and sets built around them are valued for steady output, good fuel economy and easy access to spare parts. The steel canopy protects the engine and alternator from rain and dust and keeps noise down, so the set can sit beside buildings as well as on open sites.
+
+Key Specifications:
+• Type: Enclosed, sound-attenuated diesel generator set
+• Engine: Perkins liquid-cooled diesel engine
+• Output: Sets in this class are commonly offered from about 15 kVA up to 50 kVA and above; the exact rating of the unit in stock is confirmed on request
+• Output voltage: 230/240 V single phase and 400/415 V three phase, 50 Hz
+• Enclosure: Weather-resistant steel canopy with acoustic lining and corrosion-resistant coating
+• Controls: Digital controller showing voltage, frequency, oil pressure, engine temperature and running hours
+
+Core Features & Capabilities:
+• Sound-Attenuated Canopy: Acoustic lining reduces operating noise, which matters in towns, clinics, offices and residential areas.
+• Standby-Ready: Can be paired with an automatic transfer switch (ATS) so the load moves to the generator automatically when mains power drops.
+• Built-In Protections: Controllers on sets of this type normally shut the engine down on low oil pressure, high coolant temperature and overload.
+• Weather Protection: Sealed, lockable access doors keep rain, dust and tampering away from the engine and alternator.
+• Service Friendly: Filters, dipsticks and the battery are reachable through the canopy doors, so routine servicing is quick.
+
+Applications & Suitability:
+Well suited to commercial buildings, construction sites, workshops, clinics and hospitals, schools, hotels, factories and farms that need either continuous power or reliable backup.
+
+Note: Exact power rating and specifications depend on the unit in stock. Contact us to confirm before you order.4:[["$","$Le",null,{}],["$","main",null,{"className":"pt-28","children":[["$","section",null,{"className":"mx-auto grid max-w-7xl gap-10 px-5 py-12 lg:grid-cols-2 lg:px-8 lg:py-20","children":[["$","div",null,{"className":"aspect-square bg-[#f3f3f1]","children":["$","img",null,{"src":"https://hebbkx1anhila5yf.public.blob.vercel-storage.com/arquivo_1790674212804-QZb1sUoUjQ9h9Y5vKYnpknxlj1QubG.jpg","alt":"Diesel Power Tiller","className":"h-full w-full object-contain mix-blend-multiply"}]}],["$","div",null,{"className":"self-center","children":[["$","p",null,{"className":"eyebrow text-[#b27f19]","children":"Agricultural Equipment"}],["$","h1",null,{"className":"mt-5 text-5xl font-black tracking-[-0.06em] md:text-7xl","children":"Diesel Power Tiller"}],["$","span",null,{"className":"mt-6 inline-block bg-[#e6b84d] px-3 py-2 text-[10px] font-bold uppercase tracking-widest","children":"Limited Availability"}],["$","p",null,{"className":"mt-7 text-lg leading-8 text-[#686b6d]","children":"Versatile tilling equipment built for heavy soil preparation and practical agricultural work."}],["$","div",null,{"className":"mt-8 border-y border-black/10 py-6","children":[["$","div","Engine",{"className":"flex justify-between border-b border-black/10 py-3 text-sm last:border-0","children":[["$","span",null,{"className":"text-[#777]","children":"Engine"}],["$","strong",null,{"children":"Diesel"}]]}],["$","div","Application",{"className":"flex justify-between border-b border-black/10 py-3 text-sm last:border-0","children":[["$","span",null,{"className":"text-[#777]","children":"Application"}],["$","strong",null,{"children":"Agriculture"}]]}],["$","div","Drive",{"className":"flex justify-between border-b border-black/10 py-3 text-sm last:border-0","children":[["$","span",null,{"className":"text-[#777]","children":"Drive"}],["$","strong",null,{"children":"Gear Driven"}]]}]]}],["$","div",null,{"className":"mt-8 flex flex-wrap gap-3","children":[["$","$Lf",null,{"href":"/quote","className":"bg-[#111] px-6 py-4 text-xs font-bold uppercase tracking-widest text-white","children":["Request a Quote ",["$","$L10",null,{"ref":"$undefined","icon":{"name":"arrow-up-right","size":24,"node":[["path",{"d":"M7 7h10v10","key":"1tivn9"}],["path",{"d":"M7 17 17 7","key":"1vkiza"}]]},"className":"ml-2 inline","size":14}]]}],["$","a",null,{"href":"tel:+256 707 849 453","className":"border border-black/20 px-6 py-4 text-xs font-bold uppercase tracking-widest","children":"Call Us"}]]}]]}]]}],["$","section",null,{"className":"mx-auto max-w-7xl px-5 pb-24 lg:px-8","children":[["$","$L11",null,{"eyebrow":"You may also like","title":"Related machines"}],["$","div",null,{"className":"mt-10 grid gap-5 md:grid-cols-3","children":[["$","$L12","perkins-generator",{"machine":{"slug":"perkins-generator","name":"Perkins Generator","category":"Power Equipment","description":"A robust enclosed generator for dependable heavy-duty power where it matters.","longDescription":"$13","highlights":["Perkins diesel engine","Enclosed canopy for site protection","Suited to continuous or standby duty"],"idealFor":"Construction sites, workshops, farms and commercial premises","availability":"Available","image":"https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_6021.JPG-Xrl0eZEmn4ffWvdVXgocgEsxGWoVBb.jpeg","specs":{"Engine":"Perkins","Application":"Power generation","Duty":"Continuous / Standby"}}}],"$L14","$L15"]}]]}]]}],"$L16"]
+19:I[12673,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/1v3qb7lxhaxg_.js"],"Footer"]
+17:T685,This is a stationary industrial diesel engine built to supply steady mechanical power to heavy machinery. It is a bare drive engine, meaning it is meant to be coupled to something else, such as a pump, mill, crusher or generator end, rather than to be used on its own. A heavy cast-iron block and a governed fuel system let it run for long hours at a constant speed, even when the load changes.
+
+Key Specifications:
+• Type: Stationary industrial diesel drive engine
+• Engine: 4-stroke, direct-injection diesel; water cooled
+• Power: Engines of this type are offered across a wide range of ratings, from about 10 HP single-cylinder units up to multi-cylinder engines; the rating of the unit in stock is confirmed on request
+• Output: Keyed shaft or flywheel end for belt pulleys or direct couplings
+• Starting: Hand crank or electric start, depending on the model
+• Mounting: Steel skid or base frame
+
+Core Features & Capabilities:
+• Constant-Speed Governor: A mechanical governor keeps engine speed steady when the load is applied or removed.
+• Built for Long Duty: Oversized cooling and lubrication are designed for long working days.
+• Flexible Power Take-Off: Can drive belts, pulleys, hydraulic pumps or be coupled directly to equipment.
+• Easy Maintenance: Simple mechanical design with accessible filters and oil points, so local mechanics can service it.
+
+Applications & Suitability:
+A dependable driver for water pumps, irrigation, grain and maize mills, stone crushers, concrete mixers, sawmills and custom-built site machinery.
+
+Note: Power rating and mounting details depend on the unit in stock. Contact us to confirm the specifications.14:["$","$L12","heavy-duty-engine-unit",{"machine":{"slug":"heavy-duty-engine-unit","name":"Industrial Engine Unit","category":"Industrial Equipment","description":"High-torque industrial driver engine built for heavy machinery and continuous site work.","longDescription":"$17","highlights":["High-torque diesel engine","Built for continuous site work","Suitable as a driver for industrial equipment"],"idealFor":"Contractors and businesses powering heavy machinery","availability":"Available","image":"/arquivo_1790674384786.jpg","specs":{"Type":"Diesel Engine","Application":"Industrial Drivers"}}}]
+18:T6ab,This is a compact, low-noise diesel generator for places where a loud, open-frame set is not an option. A sound-insulated canopy and a fuel-efficient diesel engine make it a comfortable neighbour to shops, offices, clinics and guest houses, while the compact body and wheels make it easy to move and position.
+
+Key Specifications:
+• Type: Compact soundproof (silent) diesel generator
+• Power: Sets in this class are commonly rated between about 3 kVA and 10 kVA; the rating of the unit in stock is confirmed on request
+• Voltage: 230 V single phase, 50 Hz, with a 12 V DC battery-charging output on most models
+• Noise: Canopy sets of this size usually run at roughly 65 to 75 dB(A) measured at 7 metres
+• Engine: Diesel, air-cooled or water-cooled depending on size
+• Mobility: Frame with wheels and a lifting handle
+
+Core Features & Capabilities:
+• Low-Noise Canopy: Sound insulation lets it run near people without the noise of an open set.
+• Stable Output: An automatic voltage regulator (AVR) holds the voltage steady, which protects computers, tills, lighting and other sensitive equipment.
+• Digital Display: Shows voltage, frequency and running hours, and helps you plan maintenance.
+• Low Fuel Use: Diesel engines are generally more fuel-efficient than petrol sets for long running periods.
+• Built-In Safety: Low-oil shutdown and overload protection guard the engine and the connected equipment.
+
+Applications & Suitability:
+Suited to shops, offices, salons, restaurants and cafes, clinics, guest houses, events, mobile businesses and small job sites that need quiet backup power.
+
+Note: Exact power rating and noise level depend on the model in stock. Contact us to confirm.15:["$","$L12","compact-power-generator",{"machine":{"slug":"compact-power-generator","name":"Compact Silent Generator","category":"Power Equipment","description":"Fuel-efficient, low-noise power unit optimized for commercial and jobsite back-up power.","longDescription":"$18","highlights":["Low-noise silent operation","Fuel-efficient diesel running","Compact footprint that is easy to place"],"idealFor":"Shops, offices, guest houses and jobsite back-up power","availability":"Available","image":"/IMG_6136.JPG.jpeg","specs":{"Type":"Silent Diesel","Noise Level":"Low DB"}}}]
+16:["$","$L19",null,{}]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+7:null
+c:[["$","title","0",{"children":"Diesel Power Tiller | Machine Man Uganda"}],["$","meta","1",{"name":"description","content":"Versatile tilling equipment built for heavy soil preparation and practical agricultural work."}]]
