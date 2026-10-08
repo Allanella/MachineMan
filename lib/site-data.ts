@@ -266,7 +266,7 @@ export const machines: Machine[] = [
     longDescription: 'This DC tyre inflator is a portable compressor that plugs into your car\'s 12V outlet. It is perfect for emergency tyre inflation and inflating sports equipment.',
     availability: 'Available',
     image: imageUrls.tyreInflator,
-    price: 'UGX 250,000',
+    price: 'UGX 2,500,000',
     specs: { Type: 'Tyre Inflator', Power: 'DC 12V' }
   },
   {
