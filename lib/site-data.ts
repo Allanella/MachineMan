@@ -57,6 +57,8 @@ export const imageUrls = {
   wirelessPaintSprayer: '/Wireless paint sprayer.jpeg',
   magneticDrill: '/magnetic drill.jpeg',
   motorisedGardenSprayer: '/motorised garden sprayer.jpeg',
+  astroKorea: '/Astro Korea.jpeg',
+  waterPumps: '/water pumps.jpeg',
 }
 
 export function uniqueByImage<T extends { image: string }>(items: T[]): T[] {
@@ -88,7 +90,7 @@ export const machines: Machine[] = [
     longDescription: 'Heavy-duty chain tiller designed for tough soil conditions. Ideal for small to medium-sized farms, this machine prepares seedbeds quickly and efficiently.',
     availability: 'Available',
     image: imageUrls.chainTractor,
-    price: 'UGX 1,700,000',
+    price: 'UGX 7,500,000',
     specs: { Type: 'Chain Tiller', Application: 'Agriculture' }
   },
   {
@@ -132,7 +134,7 @@ export const machines: Machine[] = [
     longDescription: 'These submersible water pumps are designed for wells and boreholes. They provide reliable water supply for domestic, agricultural, and industrial use.',
     availability: 'Available',
     image: imageUrls.waterPump,
-    price: 'UGX 500,000',
+    price: 'UGX 1,200,000',
     specs: { Type: 'Submersible', Application: 'Water Extraction' }
   },
   {
@@ -208,7 +210,7 @@ export const machines: Machine[] = [
     description: 'Yamaha WP20 irrigation pump for efficient water transfer.',
     longDescription: 'The Yamaha WP20 is a high-performance irrigation water pump. It is designed for moving large volumes of water quickly, making it ideal for agricultural irrigation.',
     availability: 'Available',
-    image: imageUrls.waterPump,
+    image: imageUrls.waterPumps,
     price: 'UGX 1,200,000',
     specs: { Brand: 'Yamaha', Model: 'WP20', Application: 'Irrigation' }
   },
@@ -267,6 +269,17 @@ export const machines: Machine[] = [
     price: 'UGX 250,000',
     specs: { Type: 'Tyre Inflator', Power: 'DC 12V' }
   },
+  {
+    slug: 'astro-korea-portable-generator',
+    name: 'Astro Korea portable generator',
+    category: 'Generators',
+    description: 'Compact and portable Astro Korea generator for small power needs.',
+    longDescription: 'The Astro Korea portable generator is a reliable power source for camping, small events, and backup power at home. Easy to transport and start.',
+    availability: 'Available',
+    image: imageUrls.astroKorea,
+    price: 'UGX 1,500,000',
+    specs: { Brand: 'Astro Korea', Type: 'Portable' }
+  },
 ]
 
 export const categories = [
@@ -311,12 +324,13 @@ export const galleryImages: GalleryItem[] = uniqueByImage([
   { id: '18', title: 'MIG/MAG gas welding machine portable', category: 'Welding Machines', image: imageUrls.migWelding },
   { id: '19', title: 'RECHARGEABLE HAMMER DRILL', category: 'Hand Tools', image: imageUrls.rechargeableHammerDrill },
   { id: '21', title: 'Magnetic drill', category: 'Hand Tools', image: imageUrls.magneticDrill },
-  { id: '23', title: 'Yamaha irrigation water pump', category: 'Water Pumps', image: imageUrls.waterPump },
+  { id: '23', title: 'Yamaha irrigation water pump', category: 'Water Pumps', image: imageUrls.waterPumps },
   { id: '24', title: 'Rechargeable impact wrench', category: 'Hand Tools', image: imageUrls.cordlessImpactWrench },
   { id: '25', title: '50 litres air compressor', category: 'Compressors', image: imageUrls.airCompressor },
   { id: '26', title: 'AIRLESS PAINT SPRAYER/ COLD PAINT SPRAYER', category: 'Heavy Construction Machinery', image: imageUrls.wirelessPaintSprayer },
   { id: '27', title: 'Motorised garden sprayers', category: 'Farm Machinery & Equipment', image: imageUrls.motorisedGardenSprayer },
   { id: '28', title: 'Dc tyre inflator / portable compressor', category: 'Hand Tools', image: imageUrls.tyreInflator },
+  { id: '29', title: 'Astro Korea portable generator', category: 'Generators', image: imageUrls.astroKorea },
 ])
 
 export const services = [
