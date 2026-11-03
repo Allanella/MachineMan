@@ -28,8 +28,7 @@ jobs:
       - name: 📂 Sync output to cPanel
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          # Replace with the "Shared IP Address" from the cPanel home page (right-hand panel)
-          server: YOUR.SHARED.IP.HERE
+          server: 170.10.160.196
           port: 21
           protocol: ftps
           # The server's certificate is for a name, not an IP, so allow it
