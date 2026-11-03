@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+  // Builds every page as /page/index.html so refreshing /gallery never shows a folder listing
+  trailingSlash: true,
   typescript: {
     ignoreBuildErrors: true,
   },
