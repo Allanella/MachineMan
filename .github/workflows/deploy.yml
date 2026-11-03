@@ -28,14 +28,18 @@ jobs:
       - name: 📂 Sync output to cPanel
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ftp.machinemanuganda.com
+          # Replace with the "Shared IP Address" from the cPanel home page (right-hand panel)
+          server: YOUR.SHARED.IP.HERE
           port: 21
           protocol: ftps
+          # The server's certificate is for a name, not an IP, so allow it
+          security: loose
           username: deploy@machinemanuganda.com
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ./
           local-dir: ./out/
           timeout: 60000
+          log-level: verbose
           exclude: |
             **/.git*/**
             **/node_modules/**
