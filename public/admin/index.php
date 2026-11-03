@@ -1,7 +1,78 @@
 <?php
+session_start();
+
+// Define your secure admin password here (or change it to your preference)
+$admin_password_hash = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'; // Default password: MachineMan2026!
+// Alternatively, for a simple plain text password check, you can use: 
+// $admin_plain_password = "YourSecurePasswordHere";
+
+// Handle Login Form Submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['admin_login'])) {
+    $passwordInput = $_POST['password'] ?? '';
+    
+    // Check password (using password verification)
+    if (password_verify($passwordInput, $admin_password_hash)) {
+        $_SESSION['admin_logged_in'] = true;
+        header("Location: index.php");
+        exit;
+    } else {
+        $login_error = "Invalid password. Please try again.";
+    }
+}
+
+// Handle Logout
+if (isset($_GET['logout'])) {
+    unset($_SESSION['admin_logged_in']);
+    session_destroy();
+    header("Location: index.php");
+    exit;
+}
+
+// Enforce Authentication: If not logged in, show login form
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true):
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - MachineMan</title>
+    <style>
+        :root { --primary: #2563eb; --primary-dark: #1d4ed8; --bg: #f8fafc; --card-bg: #ffffff; --text: #1e293b; --border: #e2e8f0; }
+        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .login-card { width: 100%; max-width: 380px; background: var(--card-bg); padding: 35px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border: 1px solid var(--border); }
+        h2 { margin-top: 0; font-size: 22px; color: #0f172a; text-align: center; margin-bottom: 20px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+        input[type="password"] { width: 100%; padding: 11px; box-sizing: border-box; border: 1px solid var(--border); border-radius: 6px; font-size: 14px; }
+        .btn { width: 100%; background: #111; color: white; border: none; padding: 11px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 14px; transition: background 0.2s; }
+        .btn:hover { background: #333; }
+        .alert-error { background: #fee2e2; color: #991b1b; padding: 10px; border-radius: 6px; margin-bottom: 16px; font-size: 13px; text-align: center; }
+    </style>
+</head>
+<body>
+<div class="login-card">
+    <h2>Admin Dashboard Login</h2>
+    <?php if (isset($login_error)): ?>
+        <div class="alert-error"><?= htmlspecialchars($login_error) ?></div>
+    <?php endif; ?>
+    <form method="POST">
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="password" required autofocus placeholder="Enter admin password">
+        </div>
+        <button type="submit" name="admin_login" class="btn">Sign In</button>
+    </form>
+</div>
+</body>
+</html>
+<?php
+    exit;
+endif;
+
+// --- AUTHENTICATED DASHBOARD CONTENT BELOW ---
 require_once 'db.php';
 /** @var PDO $pdo */
-session_start();
 
 $stmt = $pdo->query("SELECT * FROM media_uploads ORDER BY created_at DESC");
 $mediaList = $stmt->fetchAll();
@@ -25,6 +96,7 @@ $mediaList = $stmt->fetchAll();
         }
         body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; }
         .container { max-width: 1000px; background: var(--card-bg); padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin: auto; }
+        .header-flex { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
         h1 { margin-top: 0; font-size: 24px; color: #0f172a; }
         p { color: #64748b; }
         
@@ -35,10 +107,12 @@ $mediaList = $stmt->fetchAll();
         label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 14px; }
         input[type="text"], select, input[type="file"] { width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid var(--border); border-radius: 6px; background: #fff; font-size: 14px; }
         
-        .btn { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 14px; transition: background 0.2s; }
+        .btn { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 14px; transition: background 0.2s; text-decoration: none; display: inline-block; }
         .btn:hover { background: var(--primary-dark); }
         .btn-danger { background: var(--danger); padding: 6px 12px; font-size: 12px; }
         .btn-danger:hover { background: var(--danger-dark); }
+        .btn-logout { background: #64748b; padding: 8px 14px; font-size: 13px; }
+        .btn-logout:hover { background: #475569; }
 
         .alert-success { background: #dcfce7; color: #166534; padding: 12px; border-radius: 6px; margin-bottom: 20px; font-size: 14px; }
         .alert-error { background: #fee2e2; color: #991b1b; padding: 12px; border-radius: 6px; margin-bottom: 20px; font-size: 14px; }
@@ -61,8 +135,13 @@ $mediaList = $stmt->fetchAll();
 </head>
 <body>
 <div class="container">
-    <h1>MachineMan Admin Dashboard</h1>
-    <p>Upload new machines, tools, or gallery files to display on your platform.</p>
+    <div class="header-flex">
+        <div>
+            <h1>MachineMan Admin Dashboard</h1>
+            <p>Upload new machines, tools, or gallery files to display on your platform.</p>
+        </div>
+        <a href="index.php?logout=1" class="btn btn-logout">Logout</a>
+    </div>
     
     <?php if (isset($_GET['success'])): ?>
         <div class="alert-success"><?= htmlspecialchars($_GET['success'] === '1' ? 'Media uploaded successfully!' : $_GET['success']) ?></div>
