@@ -20,6 +20,7 @@ import {
   CornerDownLeft,
   ArrowUp,
   Code2,
+  LayoutDashboard,
 } from 'lucide-react'
 import { address, categories, email, machines, navItems, phone, whatsapp, type Machine } from '@/lib/site-data'
 
@@ -313,6 +314,17 @@ export function Navbar() {
               <MessageCircle size={17} />
             </a>
 
+            {/* ADMIN DASHBOARD BUTTON (plain <a> so the browser loads the PHP admin) */}
+            <a
+              href="/admin/"
+              rel="nofollow"
+              aria-label="Admin dashboard"
+              className="inline-flex h-10 items-center gap-2 border border-black/10 px-3 text-[13px] font-semibold text-[#111] transition hover:border-[#111] hover:bg-[#111] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e6b84d] xl:px-4"
+            >
+              <LayoutDashboard size={16} />
+              <span className="hidden xl:inline">Admin</span>
+            </a>
+
             <Link
               href="/quote"
               className="ml-1 inline-flex h-10 items-center gap-2 bg-[#e6b84d] px-5 text-[13px] font-bold text-[#111] transition hover:bg-[#111] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#111] focus-visible:ring-offset-2"
@@ -428,6 +440,13 @@ export function Navbar() {
                   <MessageCircle size={15} /> WhatsApp
                 </a>
               </div>
+              <a
+                href="/admin/"
+                rel="nofollow"
+                className="flex h-12 items-center justify-center gap-2 border border-black/15 text-sm font-semibold text-[#111]"
+              >
+                <LayoutDashboard size={15} className="text-[#b27f19]" /> Admin dashboard
+              </a>
               <p className="flex items-start gap-2 pt-2 text-xs leading-5 text-[#777]">
                 <MapPin size={14} className="mt-0.5 shrink-0 text-[#b27f19]" />
                 {address}
