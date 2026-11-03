@@ -3,7 +3,7 @@ name: Deploy Next.js to cPanel
 on:
   push:
     branches:
-      - master  
+      - master
 
 jobs:
   web-deploy:
@@ -28,8 +28,17 @@ jobs:
       - name: 📂 Sync output to cPanel
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
+          server: ftp.machinemanuganda.com
+          port: 21
+          protocol: ftps
+          username: deploy@machinemanuganda.com
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ./
           local-dir: ./out/
+          timeout: 60000
+          exclude: |
+            **/.git*/**
+            **/node_modules/**
+            admin/db.php
+            uploads/**
+            api/**
