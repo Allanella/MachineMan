@@ -1,9 +1,10 @@
 'use client'
 
 import { useState, useEffect, useMemo, useCallback } from 'react'
-import { ArrowUpRight, ChevronLeft, ChevronRight, Maximize2, X } from 'lucide-react'
+import { ArrowUpRight, ChevronLeft, ChevronRight, Maximize2, Play, X } from 'lucide-react'
 import { CTASection, Footer, Navbar, SectionHeading } from '@/components/site'
 import { galleryImages } from '@/lib/site-data'
+import { useUploads } from '@/lib/use-uploads'
 
 type Filter = string
 
@@ -11,31 +12,46 @@ type GalleryImage = {
   src: string
   alt: string
   category: string
+  type: 'image' | 'video'
 }
 
-// Built from site-data, where every photo is listed once
-const images: GalleryImage[] = galleryImages.map((g) => ({
+// Built from site-data, where every built-in photo is listed once
+const staticImages: GalleryImage[] = galleryImages.map((g) => ({
   src: g.image,
   alt: g.title,
   category: g.category,
+  type: 'image',
 }))
-
-const filters: Filter[] = ['All', ...Array.from(new Set(images.map((i) => i.category)))]
 
 export default function GalleryPage() {
   const [filter, setFilter] = useState<Filter>('All')
   const [lightbox, setLightbox] = useState<number | null>(null)
 
+  // Items uploaded from /admin appear first, then the built-in photos
+  const uploads = useUploads()
+  const images = useMemo<GalleryImage[]>(
+    () => [
+      ...uploads.map((u) => ({ src: u.src, alt: u.title, category: u.category, type: u.type })),
+      ...staticImages,
+    ],
+    [uploads]
+  )
+
+  const filters = useMemo<Filter[]>(
+    () => ['All', ...Array.from(new Set(images.map((i) => i.category)))],
+    [images]
+  )
+
   const visible = useMemo(
     () => (filter === 'All' ? images : images.filter((i) => i.category === filter)),
-    [filter]
+    [filter, images]
   )
 
   const counts = useMemo(() => {
     const c: Record<string, number> = { All: images.length }
     images.forEach((i) => (c[i.category] = (c[i.category] || 0) + 1))
     return c
-  }, [])
+  }, [images])
 
   const close = useCallback(() => setLightbox(null), [])
   const next = useCallback(
@@ -80,7 +96,7 @@ export default function GalleryPage() {
             <div className="flex gap-8 border-t border-black/10 pt-5 md:border-l md:border-t-0 md:pl-8 md:pt-0">
               <div>
                 <p className="text-3xl font-black tracking-tight">{images.length}</p>
-                <p className="mt-1 text-xs text-[#707274]">Photos</p>
+                <p className="mt-1 text-xs text-[#707274]">Photos &amp; videos</p>
               </div>
               <div>
                 <p className="text-3xl font-black tracking-tight">{filters.length - 1}</p>
@@ -131,13 +147,28 @@ export default function GalleryPage() {
                 aria-label={`View ${item.alt}`}
                 className="group relative mb-5 block w-full break-inside-avoid overflow-hidden border border-black/10 bg-[#f3f3f1] text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e6b84d] focus-visible:ring-offset-2 animate-in fade-in"
               >
-                <img
-                  src={item.src}
-                  alt={item.alt}
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                  className="w-full object-cover transition duration-700 group-hover:scale-105"
-                />
+                {item.type === 'video' ? (
+                  <>
+                    <video
+                      src={item.src}
+                      muted
+                      playsInline
+                      preload="metadata"
+                      className="w-full object-cover transition duration-700 group-hover:scale-105"
+                    />
+                    <span className="absolute left-4 top-4 grid h-9 w-9 place-items-center bg-[#e6b84d] text-[#111]">
+                      <Play size={15} />
+                    </span>
+                  </>
+                ) : (
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                    className="w-full object-cover transition duration-700 group-hover:scale-105"
+                  />
+                )}
                 <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/75 via-black/10 to-transparent p-5 opacity-0 transition duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
                   <p className="text-xs font-semibold text-[#e6b84d]">{item.category}</p>
                   <p className="mt-1 text-base font-bold text-white">{item.alt}</p>
@@ -210,23 +241,34 @@ export default function GalleryPage() {
             {visible.length > 1 && (
               <button
                 onClick={prev}
-                aria-label="Previous photo"
+                aria-label="Previous item"
                 className="absolute left-3 z-10 grid h-12 w-12 place-items-center border border-white/20 bg-black/40 text-white transition hover:bg-[#e6b84d] hover:text-[#111] md:left-6"
               >
                 <ChevronLeft size={22} />
               </button>
             )}
-            <img
-              key={current.src}
-              src={current.src}
-              alt={current.alt}
-              referrerPolicy="no-referrer"
-              className="max-h-full max-w-full object-contain animate-in fade-in"
-            />
+            {current.type === 'video' ? (
+              <video
+                key={current.src}
+                src={current.src}
+                controls
+                autoPlay
+                playsInline
+                className="max-h-full max-w-full animate-in fade-in"
+              />
+            ) : (
+              <img
+                key={current.src}
+                src={current.src}
+                alt={current.alt}
+                referrerPolicy="no-referrer"
+                className="max-h-full max-w-full object-contain animate-in fade-in"
+              />
+            )}
             {visible.length > 1 && (
               <button
                 onClick={next}
-                aria-label="Next photo"
+                aria-label="Next item"
                 className="absolute right-3 z-10 grid h-12 w-12 place-items-center border border-white/20 bg-black/40 text-white transition hover:bg-[#e6b84d] hover:text-[#111] md:right-6"
               >
                 <ChevronRight size={22} />
