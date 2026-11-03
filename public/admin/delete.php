@@ -1,32 +1,33 @@
 <?php
-require_once 'db.php';
-/** @var PDO $pdo */
-session_start();
+require __DIR__ . '/auth.php';
 
-if (isset($_GET['id'])) {
-    $id = intval($_GET['id']);
-    
-    // Fetch file path before deleting record
-    $stmt = $pdo->prepare("SELECT file_url FROM media_uploads WHERE id = ?");
-    $stmt->execute([$id]);
-    $item = $stmt->fetch();
-    
-    if ($item) {
-        // Delete physical file from server if it exists
-        $filePath = __DIR__ . '/..' . $item['file_url'];
-        if (file_exists($filePath)) {
-            unlink($filePath);
-        }
-        
-        // Delete record from database
-        $deleteStmt = $pdo->prepare("DELETE FROM media_uploads WHERE id = ?");
-        $deleteStmt->execute([$id]);
-        
-        header("Location: index.php?success=Deleted successfully");
-        exit;
-    }
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    json_out(['ok' => false, 'error' => 'Method not allowed.'], 405);
+}
+require_admin_json();
+
+if (!csrf_ok($_POST['csrf'] ?? null)) {
+    json_out(['ok' => false, 'error' => 'Security check failed. Reload the page and try again.'], 419);
 }
 
-header("Location: index.php?error=Item not found");
-exit;
-?>
+$id = (int)($_POST['id'] ?? 0);
+if ($id <= 0) {
+    json_out(['ok' => false, 'error' => 'Invalid item.'], 422);
+}
+
+$stmt = $pdo->prepare('SELECT file_url FROM media_uploads WHERE id = ?');
+$stmt->execute([$id]);
+$row = $stmt->fetch();
+if (!$row) {
+    json_out(['ok' => false, 'error' => 'That item no longer exists.'], 404);
+}
+
+// Remove the file from disk (only inside the uploads folder)
+$path = UPLOAD_DIR . '/' . basename((string)$row['file_url']);
+if (is_file($path) && basename($path) !== '.htaccess') {
+    @unlink($path);
+}
+
+$pdo->prepare('DELETE FROM media_uploads WHERE id = ?')->execute([$id]);
+
+json_out(['ok' => true]);
