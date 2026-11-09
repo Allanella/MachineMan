@@ -1,3 +1,0 @@
-:HL["/_next/static/chunks/33xlnth7sbvkq.css","style"]
-:HL["/water pumps.jpeg","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"machines","param":null,"prefetchHints":4192,"slots":{"children":{"name":"slug","param":{"type":"d","key":"yamaha-irrigation-water-pump","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"chUQ2zGAnehMlvlmYSIQP"}

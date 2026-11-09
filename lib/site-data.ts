@@ -24,54 +24,64 @@ export type GalleryItem = {
 
 export const googleMapsEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.758423819046!2d32.5725057749646!3d0.3139513996829661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbd7fe9a36717%3A0xcf6f68a319d5cb78!2sMachineman!5e0!3m2!1sen!2srw!4v1791355176506!5m2!1sen!2srw";
 
+export const imageUrls = {
+  generator: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_6021.JPG-Xrl0eZEmn4ffWvdVXgocgEsxGWoVBb.jpeg',
+  tiller: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/arquivo_1790674212804-QZb1sUoUjQ9h9Y5vKYnpknxlj1QubG.jpg',
+  phone: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/arquivo_1790674303452-ZZByhW9q7qUPM2yYGSNwyacHRzT6Xl.png',
+  machineExtra1: '/arquivo_1790674384786.jpg',
+  machineExtra2: '/arquivo_1790675961881.jpg',
+  machineExtra3: '/IMG_6111.PNG',
+  arquivo1: '/IMG_6111.PNG',
+  arquivo2: '/IMG_6136.JPG.jpeg',
+  arquivo3: '/IMG_6140.JPG.jpeg',
+  arquivo4: '/IMG_6141.JPG.jpeg',
+  arquivo5: '/IMG_6111.PNG',
+  arquivo6: '/IMG_6136.JPG.jpeg',
+  arquivo7: '/IMG_6140.JPG.jpeg',
+  arquivo8: '/IMG_6141.JPG.jpeg',
+  arquivo9: '/IMG_6111.PNG',
+  arquivo10: '/IMG_6136.JPG.jpeg',
+  arquivo11: '/IMG_6140.JPG.jpeg',
+  arquivo12: '/IMG_6141.JPG.jpeg',
+  arquivo13: '/IMG_6111.PNG',
+  carPolisher: '/Car polisher.jpeg',
+  chainTractor: '/chainTractor.jpeg',
+  dieselWeldingGenerator: '/DieselWeldingGenerator.jpeg',
+  hedgeTrimmer: '/Hedge trimmer.jpeg',
+  airCompressor: '/Air compressor.jpeg',
+  waterPump: '/Water pump.jpeg',
+  walkingTractor: '/Walking tractor.jpeg',
+  standby25kva: '/Standby generator 25KVA.jpeg',
+  standby60kva: '/Standby generator 60KVA.jpeg',
+  migWelding: '/MiG welding.jpeg',
+  rechargeableHammerDrill: '/Rechargeable hammer drill.jpeg',
+  cordlessImpactWrench: '/Cordless impact wrench.jpeg',
+  tyreInflator: '/tyre inflater.jpeg',
+  wirelessPaintSprayer: '/Wireless paint sprayer.jpeg',
+  magneticDrill: '/magnetic drill.jpeg',
+  motorisedGardenSprayer: '/motorised garden sprayer.jpeg',
+  astroKorea: '/Astro Korea.jpeg',
+  waterPumps: '/water pumps.jpeg',
+};
+
 export const categories = [
   {
     slug: 'power-equipment',
     name: 'Power Equipment',
     description: 'Heavy-duty generators and dependable power solutions for continuous and backup energy.',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_6021.JPG-Xrl0eZEmn4ffWvdVXgocgEsxGWoVBb.jpeg'
+    image: imageUrls.generator
   },
   {
     slug: 'agricultural-equipment',
     name: 'Agricultural Equipment',
     description: 'Practical, high-yield farm machinery and power tillers engineered for land cultivation.',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/arquivo_1790674212804-QZb1sUoUjQ9h9Y5vKYnpknxlj1QubG.jpg'
+    image: imageUrls.tiller
   },
   {
     slug: 'industrial-equipment',
     name: 'Industrial Equipment',
     description: 'Heavy machinery and driving units built for demanding construction and industrial applications.',
-    image: '/arquivo_1790674384786.jpg'
-  },
-  {
-    slug: 'welding-machines',
-    name: 'Welding Machines',
-    description: 'High-quality diesel and electric welding machines for heavy-duty work.',
-    image: '/DieselWeldingGenerator.jpeg'
-  },
-  {
-    slug: 'hand-tools',
-    name: 'Hand Tools',
-    description: 'Professional grade tools and equipment for workshop and detailing.',
-    image: '/Car polisher.jpeg'
-  },
-  {
-    slug: 'compressors',
-    name: 'Compressors',
-    description: 'Reliable air compressors for workshops and pneumatic tools.',
-    image: '/Air compressor.jpeg'
-  },
-  {
-    slug: 'water-pumps',
-    name: 'Water Pumps',
-    description: 'Efficient water pumps for wells, irrigation, and deep extraction.',
-    image: '/Water pump.jpeg'
-  },
-  {
-    slug: 'generators',
-    name: 'Generators',
-    description: 'Standby and portable diesel generators for residential and commercial power.',
-    image: '/Standby generator 25KVA.jpeg'
+    image: imageUrls.machineExtra1
   }
 ];
 
@@ -98,6 +108,23 @@ export const whatsapp = 'https://wa.me/256707849453';
 export const address = 'Kampala, Nabugabo Road, Uganda';
 export const siteDescription = 'Machine Man / Machineman Hardware supplies quality machines and equipment in Kampala, Uganda. Located along Nabugabo Road.';
 
+// Static fallback arrays so existing components build successfully
+export const machines: Machine[] = [
+  {
+    slug: 'diesel-welding-generator-210amps',
+    name: 'Diesel Welding Generator 210amps',
+    category: 'Welding Machines',
+    description: 'High-quality diesel welding generator for heavy-duty site work.',
+    availability: 'Available',
+    image: imageUrls.dieselWeldingGenerator,
+    price: 'UGX 4,500,000'
+  }
+];
+
+export const galleryImages: GalleryItem[] = [
+  { id: '1', title: 'Perkins Heavy Silent Generator', category: 'Power Equipment', image: imageUrls.generator }
+];
+
 const API_BASE_URL = 'https://machinemanuganda.com/admin/api.php';
 
 function slugify(text: string): string {
@@ -107,7 +134,6 @@ function slugify(text: string): string {
     .replace(/ +/g, '-');
 }
 
-// Fetch live database items from cPanel
 export async function getLiveItems(): Promise<any[]> {
   try {
     const res = await fetch(API_BASE_URL, { cache: 'no-store' });
@@ -120,16 +146,15 @@ export async function getLiveItems(): Promise<any[]> {
   }
 }
 
-// Dynamic Machines List
 export async function getMachines(): Promise<Machine[]> {
   const items = await getLiveItems();
+  if (!items.length) return machines;
   return items.map((item) => ({
     id: item.id,
     slug: slugify(item.title),
     name: item.title,
     category: item.category || 'General',
     description: item.description || item.title,
-    longDescription: item.description || '',
     availability: 'Available',
     image: item.file_url,
     price: item.price || 'Contact for Price',
@@ -137,9 +162,9 @@ export async function getMachines(): Promise<Machine[]> {
   }));
 }
 
-// Dynamic Gallery Items
 export async function getGalleryImages(): Promise<GalleryItem[]> {
   const items = await getLiveItems();
+  if (!items.length) return galleryImages;
   return items.map((item) => ({
     id: String(item.id),
     title: item.title,
@@ -149,16 +174,14 @@ export async function getGalleryImages(): Promise<GalleryItem[]> {
   }));
 }
 
-// Helper: Get Single Machine
 export async function getMachine(slug: string): Promise<Machine | undefined> {
-  const machines = await getMachines();
-  return machines.find((machine) => machine.slug === slug);
+  const allMachines = await getMachines();
+  return allMachines.find((machine) => machine.slug === slug);
 }
 
-// Helper: Get Machines by Category
 export async function getCategoryMachines(slug: string): Promise<Machine[]> {
   const category = categories.find((item) => item.slug === slug);
-  const machines = await getMachines();
+  const allMachines = await getMachines();
   if (!category) return [];
-  return machines.filter((machine) => machine.category.toLowerCase() === category.name.toLowerCase());
+  return allMachines.filter((machine) => machine.category.toLowerCase() === category.name.toLowerCase());
 }
