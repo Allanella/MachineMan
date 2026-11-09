@@ -5,8 +5,9 @@
 
 $host    = 'localhost';
 $db      = 'machinemanuganda_machineman_db';
-$user    = 'machinemanuganda_panel';
-$pass    = 'xaviselecao123567891';
+$user    = 'machinemanuganda_site2';
+$pass    = '
+selecaoxavi123';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
