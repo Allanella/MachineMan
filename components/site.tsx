@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState, useEffect, useRef, useMemo, useCallback, type ReactNode } from 'react'
+import { useState, useEffect, useRef, useMemo, useCallback, type FormEvent, type ReactNode } from 'react'
 import {
   ArrowUpRight,
   ChevronDown,
@@ -22,7 +22,8 @@ import {
   Code2,
   LayoutDashboard,
 } from 'lucide-react'
-import { address, categories, email, machines, navItems, phone, whatsapp, type Machine } from '@/lib/site-data'
+import { navItems, type Machine } from '@/lib/site-data'
+import { useLive } from '@/lib/use-live'
 
 export function Logo({ light = false }: { light?: boolean }) {
   return (
@@ -44,6 +45,7 @@ const navLinkBase =
   'relative inline-flex items-center gap-1 py-2 text-[13px] font-semibold tracking-wide text-[#3d3f41] transition-colors hover:text-[#111] focus-visible:outline-none focus-visible:text-[#111] after:absolute after:inset-x-0 after:-bottom-[27px] after:h-[2px] after:origin-left after:scale-x-0 after:bg-[#e6b84d] after:transition-transform after:duration-300 hover:after:scale-x-100 focus-visible:after:scale-x-100'
 
 export function Navbar() {
+  const { machines, categories, phone, email, address, whatsapp } = useLive()
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -549,6 +551,7 @@ export function Navbar() {
 }
 
 export function Footer() {
+  const { categories, phone, email, address, whatsapp } = useLive()
   const [showDevContacts, setShowDevContacts] = useState(false)
   const devRef = useRef<HTMLDivElement>(null)
 
@@ -816,6 +819,7 @@ export function MachineCard({ machine }: { machine: Machine }) {
 }
 
 export function CTASection() {
+  const { phone } = useLive()
   return (
     <section className="relative overflow-hidden bg-[#e6b84d] px-5 py-16 md:py-24">
       {/* subtle pattern + glow */}
@@ -894,20 +898,68 @@ function Field({ label, children }: { label: string; children: ReactNode }) {
 }
 
 export function ContactForm({ quote = false }: { quote?: boolean }) {
+  const [state, setState] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
+  const [error, setError] = useState('')
+
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    const form = event.currentTarget
+    const data = Object.fromEntries(new FormData(form).entries()) as Record<string, string>
+    setState('sending')
+    setError('')
+    try {
+      const res = await fetch('/api/enquiry.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...data, type: quote ? 'quote' : 'contact' }),
+      })
+      const json = await res.json().catch(() => null)
+      if (json && json.ok) {
+        form.reset()
+        setState('sent')
+      } else {
+        setError((json && json.error) || 'Sorry, something went wrong. Please call or WhatsApp us.')
+        setState('error')
+      }
+    } catch {
+      setError('Network problem. Please check your connection and try again.')
+      setState('error')
+    }
+  }
+
+  if (state === 'sent') {
+    return (
+      <div className="border border-[#e6b84d] bg-[#fdf8ea] p-8 text-center">
+        <p className="text-xl font-black tracking-tight">Thank you! Your message has been sent.</p>
+        <p className="mt-2 text-sm text-[#616467]">We will get back to you as soon as possible.</p>
+        <button
+          type="button"
+          onClick={() => setState('idle')}
+          className="mt-6 border border-black/20 px-5 py-3 text-xs font-bold uppercase tracking-widest transition hover:bg-[#111] hover:text-white"
+        >
+          Send another message
+        </button>
+      </div>
+    )
+  }
+
   return (
-    <form className="space-y-5" onSubmit={(event) => event.preventDefault()}>
+    <form className="space-y-5" onSubmit={onSubmit}>
+      {/* hidden trap for spam robots */}
+      <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
       <div className="grid gap-5 md:grid-cols-2">
         <Field label="Full name *">
-          <input required placeholder="e.g. John Mukasa" className="field" />
+          <input required name="name" placeholder="e.g. John Mukasa" className="field" />
         </Field>
         <Field label="Phone number *">
-          <input required placeholder="e.g. 0700 000 000" className="field" />
+          <input required name="phone" placeholder="e.g. 0700 000 000" className="field" />
         </Field>
         <Field label="Email address">
-          <input type="email" placeholder="you@example.com" className="field" />
+          <input type="email" name="email" placeholder="you@example.com" className="field" />
         </Field>
         <Field label={quote ? 'Company / organization' : 'Machine / equipment needed'}>
           <input
+            name={quote ? 'company' : 'subject'}
             placeholder={quote ? 'Company / organization' : 'Machine / equipment needed'}
             className="field"
           />
@@ -916,23 +968,32 @@ export function ContactForm({ quote = false }: { quote?: boolean }) {
       {quote && (
         <div className="grid gap-5 md:grid-cols-2">
           <Field label="Machine required">
-            <input placeholder="e.g. Diesel Power Tiller" className="field" />
+            <input name="subject" placeholder="e.g. Diesel Power Tiller" className="field" />
           </Field>
           <Field label="Quantity">
-            <input type="number" min="1" placeholder="1" className="field" />
+            <input type="number" min="1" name="quantity" placeholder="1" className="field" />
           </Field>
         </div>
       )}
       <Field label={quote ? 'Additional requirements *' : 'Your message *'}>
         <textarea
           required
+          name="message"
           placeholder={quote ? 'Additional requirements' : 'Tell us how we can help'}
           rows={5}
           className="field resize-none"
         />
       </Field>
-      <button className="group w-full bg-[#111] px-6 py-4 text-xs font-bold uppercase tracking-widest text-white transition hover:bg-[#e6b84d] hover:text-[#111]">
-        {quote ? 'Submit Request' : 'Send Inquiry'}{' '}
+      {state === 'error' && (
+        <p role="alert" className="border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+          {error}
+        </p>
+      )}
+      <button
+        disabled={state === 'sending'}
+        className="group w-full bg-[#111] px-6 py-4 text-xs font-bold uppercase tracking-widest text-white transition hover:bg-[#e6b84d] hover:text-[#111] disabled:opacity-60"
+      >
+        {state === 'sending' ? 'Sending…' : quote ? 'Submit Request' : 'Send Inquiry'}{' '}
         <ArrowUpRight
           className="ml-2 inline transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
           size={14}

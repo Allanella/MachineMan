@@ -4,7 +4,8 @@ import { useState, useEffect, useRef, type ReactNode } from 'react'
 import Link from 'next/link'
 import { ArrowDown, ArrowUpRight, CheckCircle2, Zap, ChevronLeft, ChevronRight } from 'lucide-react'
 import { CTASection, FeatureStrip, Footer, MachineCard, Navbar, SectionHeading } from '@/components/site'
-import { categories, imageUrls, machines, galleryImages, whatsapp } from '@/lib/site-data'
+import { imageUrls, galleryImages } from '@/lib/site-data'
+import { useLive } from '@/lib/use-live'
 
 const HERO_MS = 5500
 
@@ -74,6 +75,10 @@ export default function Home() {
   const [heroIndex, setHeroIndex] = useState(0)
   const [heroPaused, setHeroPaused] = useState(false)
   const [showcaseIndex, setShowcaseIndex] = useState(0)
+  const { machines, categories, s, whatsapp } = useLive()
+  // The big category cards: the ones marked "Show on home page" (or the first three)
+  const featuredCats = categories.filter((c) => c.featured)
+  const homeCategories = featuredCats.length ? featuredCats : categories.slice(0, 3)
 
   const nextHero = () => setHeroIndex((p) => (p + 1) % heroImages.length)
   const prevHero = () => setHeroIndex((p) => (p - 1 + heroImages.length) % heroImages.length)
@@ -140,18 +145,18 @@ export default function Home() {
           <div className="relative mx-auto grid w-full max-w-7xl gap-10 px-5 pb-20 lg:grid-cols-[1fr_auto] lg:items-end lg:px-8 lg:pb-28">
             <div className="max-w-3xl text-white">
               <div className="inline-flex items-center gap-2 border border-[#e6b84d]/40 bg-[#e6b84d]/10 px-3 py-1.5 text-[11px] font-bold tracking-[0.2em] text-[#e6b84d] uppercase backdrop-blur-sm">
-                <Zap size={14} /> MACHINEMAN HARDWARE · KAMPALA, UGANDA
+                <Zap size={14} /> {s.hero_badge}
               </div>
 
               <h1 className="mt-6 text-5xl font-black leading-[0.95] tracking-[-0.06em] sm:text-6xl md:text-8xl">
-                QUALITY MACHINES.<br />
+                {s.hero_line1}<br />
                 <span className="bg-gradient-to-r from-[#e6b84d] to-[#f7d98a] bg-clip-text text-transparent">
-                  BUILT FOR THE JOB.
+                  {s.hero_line2}
                 </span>
               </h1>
 
               <p className="mt-7 max-w-xl text-base leading-7 text-white/70 sm:text-lg">
-                Your reliable partner for industrial, power, and agricultural equipment in Kampala, Uganda. We connect contractors, farmers, and businesses with dependable machinery.
+                {s.hero_text}
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
@@ -344,15 +349,15 @@ export default function Home() {
           <Reveal delay={120}>
             <SectionHeading
               eyebrow="About Machine Man"
-              title="Your Machinery Partner in Kampala"
-              text="Machineman Hardware is situated on Nabugabo Road, Kampala. We specialize in supplying reliable power equipment, tillers, and industrial hardware."
+              title={s.home_about_title}
+              text={s.home_about_text}
             />
 
             <div className="mt-8 space-y-3 text-sm text-[#616467]">
               {[
-                ['Practical Equipment:', 'Handpicked machinery tested for regional working conditions.'],
-                ['Direct Consultation:', 'We help you choose the right capacity and engine type before buying.'],
-                ['Sourcing Assistance:', 'Need specialized hardware? We leverage our network to source for you.'],
+                [s.home_p1_title, s.home_p1_text],
+                [s.home_p2_title, s.home_p2_text],
+                [s.home_p3_title, s.home_p3_text],
               ].map(([title, text]) => (
                 <p
                   key={title}
@@ -453,7 +458,7 @@ export default function Home() {
             </Reveal>
 
             <div className="mt-12 grid gap-6 md:grid-cols-3">
-              {categories.map((category, idx) => (
+              {homeCategories.map((category, idx) => (
                 <Reveal key={category.slug} delay={idx * 100}>
                   <Link
                     href={`/categories/${category.slug}`}
