@@ -127,8 +127,8 @@ export function MachineDetailView({ initialSlug }: { initialSlug: string }) {
         <section className="mx-auto max-w-7xl px-5 pb-24 lg:px-8">
           <SectionHeading eyebrow="You may also like" title="Related machines" />
           <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {machines
-              .filter((item) => item.slug !== machine.slug)
+            {[...machines.filter((m) => m.category === machine.category), ...machines]
+              .filter((item, i, arr) => item.slug !== machine.slug && arr.findIndex((o) => o.slug === item.slug) === i)
               .slice(0, 3)
               .map((item) => (
                 <MachineCard key={item.slug} machine={item} />
@@ -146,10 +146,14 @@ export function CategoryView({ initialSlug }: { initialSlug: string }) {
   const { categories, machines, ready } = useLive()
   const slug = useUrlSlug('categories', initialSlug)
   const category = categories.find((c) => c.slug === slug)
+  const [type, setType] = useState('')
 
   if (!category) return ready ? <NotFound what="Category" href="/machines" /> : <Loading />
 
-  const items = machines.filter((m) => m.category === category.name)
+  const all = machines.filter((m) => m.category === category.name)
+  // Types such as Diesel / Petrol / Standby, taken from each machine's "Type" spec
+  const types = Array.from(new Set(all.map((m) => m.specs?.Type).filter(Boolean) as string[]))
+  const items = type ? all.filter((m) => m.specs?.Type === type) : all
 
   return (
     <>
@@ -157,6 +161,24 @@ export function CategoryView({ initialSlug }: { initialSlug: string }) {
       <main className="pt-32">
         <section className="mx-auto max-w-7xl px-5 pb-24 lg:px-8">
           <SectionHeading eyebrow="Category" title={category.name} text={category.description} />
+          {types.length > 1 && (
+            <div className="mt-10 flex flex-wrap gap-2" role="tablist" aria-label="Filter by type">
+              {['', ...types].map((t) => (
+                <button
+                  key={t || 'all'}
+                  type="button"
+                  onClick={() => setType(t)}
+                  className={`border px-4 py-2.5 text-[13px] font-semibold transition ${
+                    type === t
+                      ? 'border-[#111] bg-[#111] text-white'
+                      : 'border-black/10 bg-white text-[#3d3f41] hover:border-black/30'
+                  }`}
+                >
+                  {t || 'All'}
+                </button>
+              ))}
+            </div>
+          )}
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {items.length ? (
               items.map((machine) => <MachineCard key={machine.slug} machine={machine} />)
