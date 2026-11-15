@@ -54,7 +54,7 @@ function Loading() {
 
 /* ------------------------------------------------------------------ */
 export function MachineDetailView({ initialSlug }: { initialSlug: string }) {
-  const { machines, phone, ready } = useLive()
+  const { machines, listed, phone, ready } = useLive()
   const slug = useUrlSlug('machines', initialSlug)
   const machine = machines.find((m) => m.slug === slug)
 
@@ -131,7 +131,7 @@ export function MachineDetailView({ initialSlug }: { initialSlug: string }) {
 
         {rangeItems.length > 0 && (
           <section className="mx-auto max-w-7xl px-5 pb-16 lg:px-8">
-            <SectionHeading eyebrow="Same range" title={`More ${machine.range}`} />
+            <SectionHeading eyebrow="Same range" title={`More in ${machine.range}`} />
             <div className="mt-10 grid gap-5 md:grid-cols-3">
               {rangeItems.map((item) => (
                 <MachineCard key={item.slug} machine={item} />
@@ -143,7 +143,7 @@ export function MachineDetailView({ initialSlug }: { initialSlug: string }) {
         <section className="mx-auto max-w-7xl px-5 pb-24 lg:px-8">
           <SectionHeading eyebrow="You may also like" title="Related machines" />
           <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {[...machines.filter((m) => m.category === machine.category), ...machines]
+            {[...listed.filter((m) => m.category === machine.category), ...listed]
               .filter(
                 (item, i, arr) =>
                   item.slug !== machine.slug &&
@@ -164,7 +164,7 @@ export function MachineDetailView({ initialSlug }: { initialSlug: string }) {
 
 /* ------------------------------------------------------------------ */
 export function CategoryView({ initialSlug }: { initialSlug: string }) {
-  const { categories, machines, ready } = useLive()
+  const { categories, listed: machines, ready } = useLive()
   const slug = useUrlSlug('categories', initialSlug)
   const category = categories.find((c) => c.slug === slug)
   const [type, setType] = useState('')

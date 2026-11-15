@@ -21,12 +21,38 @@ export type Category = {
 /** A machine from site-data, plus the optional "range" set in the admin */
 export type LiveMachine = Machine & { range?: string }
 
+/**
+ * Machines for the main lists (home page, Machines page, categories, menu).
+ * Nothing is hidden: machines that share a range are simply placed next to each
+ * other, right after the first machine of that range.
+ */
+export function listedMachines(machines: LiveMachine[]): LiveMachine[] {
+  const out: LiveMachine[] = []
+  const done = new Set<string>()
+  for (const m of machines) {
+    if (done.has(m.slug)) continue
+    out.push(m)
+    done.add(m.slug)
+    if (m.range) {
+      for (const n of machines) {
+        if (!done.has(n.slug) && n.range === m.range) {
+          out.push(n)
+          done.add(n.slug)
+        }
+      }
+    }
+  }
+  return out
+}
+
 export type Project = { tag: string; title: string; text: string; image: string }
 
 export type Live = {
   /** true once the server has answered (or failed to) */
   ready: boolean
   machines: LiveMachine[]
+  /** machines for the main lists, with ranges kept together */
+  listed: LiveMachine[]
   categories: Category[]
   services: [string, string][]
   projects: Project[]
@@ -49,6 +75,7 @@ function build(
   return {
     ready,
     machines,
+    listed: listedMachines(machines),
     categories,
     services,
     projects,
