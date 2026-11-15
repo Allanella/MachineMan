@@ -60,6 +60,11 @@ export function MachineDetailView({ initialSlug }: { initialSlug: string }) {
 
   if (!machine) return ready ? <NotFound what="Machine" href="/machines" /> : <Loading />
 
+  // Other machines in the same range (e.g. more diesel welding generators)
+  const rangeItems = machine.range
+    ? machines.filter((m) => m.range === machine.range && m.slug !== machine.slug)
+    : []
+
   return (
     <>
       <Navbar />
@@ -124,11 +129,27 @@ export function MachineDetailView({ initialSlug }: { initialSlug: string }) {
           </div>
         </section>
 
+        {rangeItems.length > 0 && (
+          <section className="mx-auto max-w-7xl px-5 pb-16 lg:px-8">
+            <SectionHeading eyebrow="Same range" title={`More ${machine.range}`} />
+            <div className="mt-10 grid gap-5 md:grid-cols-3">
+              {rangeItems.map((item) => (
+                <MachineCard key={item.slug} machine={item} />
+              ))}
+            </div>
+          </section>
+        )}
+
         <section className="mx-auto max-w-7xl px-5 pb-24 lg:px-8">
           <SectionHeading eyebrow="You may also like" title="Related machines" />
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {[...machines.filter((m) => m.category === machine.category), ...machines]
-              .filter((item, i, arr) => item.slug !== machine.slug && arr.findIndex((o) => o.slug === item.slug) === i)
+              .filter(
+                (item, i, arr) =>
+                  item.slug !== machine.slug &&
+                  !rangeItems.some((r) => r.slug === item.slug) &&
+                  arr.findIndex((o) => o.slug === item.slug) === i
+              )
               .slice(0, 3)
               .map((item) => (
                 <MachineCard key={item.slug} machine={item} />

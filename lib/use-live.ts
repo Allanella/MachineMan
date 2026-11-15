@@ -18,12 +18,15 @@ export type Category = {
   featured: boolean
 }
 
+/** A machine from site-data, plus the optional "range" set in the admin */
+export type LiveMachine = Machine & { range?: string }
+
 export type Project = { tag: string; title: string; text: string; image: string }
 
 export type Live = {
   /** true once the server has answered (or failed to) */
   ready: boolean
-  machines: Machine[]
+  machines: LiveMachine[]
   categories: Category[]
   services: [string, string][]
   projects: Project[]
@@ -37,7 +40,7 @@ export type Live = {
 
 function build(
   s: Record<string, string>,
-  machines: Machine[],
+  machines: LiveMachine[],
   categories: Category[],
   services: [string, string][],
   projects: Project[],
@@ -145,6 +148,7 @@ function load() {
         longDescription: m.long_description || m.description || '',
         availability: (m.availability || 'Available') as Machine['availability'],
         image: m.image_url || '',
+        range: m.range_name || '',
         price: m.price || '',
         specs: m.specs && !Array.isArray(m.specs) ? m.specs : {},
       }))
