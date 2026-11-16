@@ -2,6 +2,9 @@
 require __DIR__ . '/auth.php';
 if (!is_admin()) { header('Location: /admin/'); exit; }
 $csrf = csrf_token();
+$catNames = [];
+try { $catNames = $pdo->query('SELECT name FROM categories ORDER BY sort_order, id')->fetchAll(PDO::FETCH_COLUMN); } catch (Throwable $e) {}
+if (!$catNames) $catNames = CATEGORIES;
 ?><!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -10,7 +13,7 @@ $csrf = csrf_token();
 <style>
 :root{--ink:#111;--gold:#e6b84d;--line:#e5e3dc;--mut:#707274;--bg:#faf9f6}
 *{box-sizing:border-box}body{margin:0;font:14px/1.5 system-ui,sans-serif;background:var(--bg);color:var(--ink)}
-header{background:var(--ink);color:#fff;padding:14px 24px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+header{background:var(--ink);color:#fff;padding:12px 24px;display:flex;gap:6px 18px;align-items:center;flex-wrap:wrap}
 header b{font-size:16px}header a{color:#ddd;text-decoration:none;font-weight:600}header a.on{color:var(--gold)}
 main{max-width:1100px;margin:0 auto;padding:24px}
 .bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
@@ -31,11 +34,12 @@ label{font-size:12px;font-weight:700;display:block;margin-bottom:4px}
 #toast{position:fixed;bottom:20px;right:20px;background:var(--ink);color:#fff;padding:12px 18px;display:none}
 @media(max-width:640px){form.f{grid-template-columns:1fr}.hide-m{display:none}}
 </style></head><body>
-<header><b>MachineMan Admin</b><a href="/admin/">Gallery uploads</a><a class="on" href="/admin/machines.php">Machines</a><a href="/" target="_blank">View site ↗</a></header>
+<header><b>MachineMan Admin</b><a href="/admin/">Dashboard</a><a href="content.php#home">Home</a><a class="on" href="/admin/machines.php">Machines</a><a href="content.php#categories">Categories</a><a href="content.php#services">Services</a><a href="content.php#projects">Projects</a><a href="/admin/#media">Gallery</a><a href="content.php#about">About</a><a href="content.php#contact">Contact</a><a href="/admin/enquiries.php">Enquiries</a><a href="/" target="_blank">View site ↗</a></header>
 <main>
  <div class="bar">
-  <input id="q" placeholder="Search machines…"><select id="fc"><option value="">All categories</option><?php foreach (CATEGORIES as $c) echo '<option>'.htmlspecialchars($c).'</option>'; ?></select>
-  <button id="add" style="margin-left:auto">+ Add machine</button>
+  <input id="q" placeholder="Search machines…"><select id="fc"><option value="">All categories</option><?php foreach ($catNames as $c) echo '<option>'.htmlspecialchars($c).'</option>'; ?></select>
+  <a href="content.php#machines" style="margin-left:auto;align-self:center;color:#8a610f;font-weight:600">Edit page heading</a>
+  <button id="add">+ Add machine</button>
  </div>
  <table><thead><tr><th></th><th>Name</th><th class="hide-m">Category</th><th class="hide-m">Price</th><th>Status</th><th></th></tr></thead><tbody id="rows"></tbody></table>
  <p id="empty" style="display:none;color:var(--mut)">No machines found.</p>
@@ -45,9 +49,9 @@ label{font-size:12px;font-weight:700;display:block;margin-bottom:4px}
  <input type="hidden" name="csrf" value="<?= htmlspecialchars($csrf) ?>"><input type="hidden" name="action" value="save">
  <input type="hidden" name="id" id="id"><input type="hidden" name="image_url" id="image_url">
  <div class="w"><label>Name *</label><input name="name" id="name" required maxlength="255"></div>
- <div><label>Category *</label><select name="category" id="category"><?php foreach (CATEGORIES as $c) echo '<option>'.htmlspecialchars($c).'</option>'; ?></select></div>
+ <div><label>Category *</label><select name="category" id="category"><?php foreach ($catNames as $c) echo '<option>'.htmlspecialchars($c).'</option>'; ?></select></div>
  <div><label>Price (e.g. UGX 4,500,000)</label><input name="price" id="price" maxlength="100"></div>
- <div><label>Availability</label><select name="availability" id="availability"><option>Available</option><option>Out of stock</option><option>On order</option></select></div>
+ <div><label>Availability</label><select name="availability" id="availability"><option>Available</option><option>Limited Availability</option><option>Contact for Availability</option></select></div>
  <div><label>Picture</label><input type="file" name="image" accept="image/*"></div>
  <div class="w"><img id="prev" alt="" style="max-height:110px;display:none"></div>
  <div class="w"><label>Short description (max 500)</label><textarea name="description" id="description" rows="2" maxlength="500"></textarea></div>

@@ -45,7 +45,7 @@ const navLinkBase =
   'relative inline-flex items-center gap-1 py-2 text-[13px] font-semibold tracking-wide text-[#3d3f41] transition-colors hover:text-[#111] focus-visible:outline-none focus-visible:text-[#111] after:absolute after:inset-x-0 after:-bottom-[27px] after:h-[2px] after:origin-left after:scale-x-0 after:bg-[#e6b84d] after:transition-transform after:duration-300 hover:after:scale-x-100 focus-visible:after:scale-x-100'
 
 export function Navbar() {
-  const { machines, categories, phone, email, address, whatsapp } = useLive()
+  const { machines, listed, categories, phone, email, address, whatsapp } = useLive()
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -248,7 +248,7 @@ export function Navbar() {
                             </div>
                           ) : (
                             <div className="grid grid-cols-2 gap-1 p-3">
-                              {machines.slice(0, 6).map((m) => (
+                              {listed.slice(0, 6).map((m) => (
                                 <Link
                                   key={m.slug}
                                   href={`/machines/${m.slug}`}
@@ -572,6 +572,8 @@ export function Footer() {
   }, [])
 
   return (
+    <>
+    <FloatingContact />
     <footer className="relative overflow-hidden bg-[#111] text-white">
       {/* decorative glow + top accent line */}
       <div aria-hidden className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#e6b84d] via-[#f7d98a] to-[#b27f19]" />
@@ -736,6 +738,7 @@ export function Footer() {
         </div>
       </div>
     </footer>
+    </>
   )
 }
 
@@ -1000,5 +1003,42 @@ export function ContactForm({ quote = false }: { quote?: boolean }) {
         />
       </button>
     </form>
+  )
+}
+
+/* Floating WhatsApp + TikTok buttons, visible on every page */
+export function FloatingContact() {
+  const { whatsapp, s } = useLive()
+  const tiktok = s.tiktok_url
+  const label = s.tiktok_label || 'TikTok'
+  return (
+    <div className="fixed bottom-5 right-4 z-40 flex flex-col items-end gap-3 sm:bottom-6 sm:right-6">
+      {tiktok && (
+        <a
+          href={tiktok}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={label}
+          className="group flex items-center gap-2 rounded-full bg-[#111] py-3 pl-3 pr-3 text-white shadow-[0_10px_30px_-8px_rgba(0,0,0,0.5)] ring-1 ring-white/15 transition hover:scale-105 sm:pr-5"
+        >
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden>
+            <path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9a7.3 7.3 0 0 0 4.3 1.4V7.3a4.3 4.3 0 0 1-3.2-1.5z" />
+          </svg>
+          <span className="hidden text-xs font-bold uppercase tracking-widest sm:inline">TikTok</span>
+        </a>
+      )}
+      <a
+        href={whatsapp}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Chat on WhatsApp"
+        className="group flex items-center gap-2 rounded-full bg-[#25D366] py-3 pl-3 pr-3 text-white shadow-[0_10px_30px_-8px_rgba(37,211,102,0.6)] transition hover:scale-105 sm:pr-5"
+      >
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden>
+          <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.6.1a6.700 6.700 0 0 1-3.300-2.900c-.2-.4.2-.4.700-1.300.1-.2 0-.3 0-.4l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.200 5.200 5.200 0 0 0 1.100 2.800 11.900 11.900 0 0 0 4.600 4.100c1.700.7 2.400.8 3.200.7a2.700 2.700 0 0 0 1.800-1.300 2.200 2.200 0 0 0 .2-1.300c-.1-.1-.3-.2-.5-.3z" />
+        </svg>
+        <span className="hidden text-xs font-bold uppercase tracking-widest sm:inline">WhatsApp</span>
+      </a>
+    </div>
   )
 }

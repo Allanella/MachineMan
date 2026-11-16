@@ -44,6 +44,15 @@ if (is_admin() && ($_GET['action'] ?? '') === 'list') {
 $loggedIn = is_admin();
 
 if ($loggedIn) {
+    // How many machines are live / hidden (0 if the machines table isn't created yet)
+    $machLive = 0; $machHidden = 0; $unread = 0;
+    try { $unread = (int)$pdo->query('SELECT COUNT(*) FROM enquiries WHERE is_read = 0')->fetchColumn(); } catch (Throwable $e) {}
+    try {
+        $mc = $pdo->query('SELECT SUM(is_published = 1) AS live, SUM(is_published = 0) AS hidden FROM machines')->fetch();
+        $machLive   = (int)($mc['live'] ?? 0);
+        $machHidden = (int)($mc['hidden'] ?? 0);
+    } catch (Throwable $e) { /* table not created yet */ }
+
     $boot = [
         'csrf'     => csrf_token(),
         'items'    => fetch_items(),
@@ -119,6 +128,7 @@ if ($loggedIn) {
   label.f{display:block;margin-bottom:14px}
   label.f>span{display:block;font-size:12px;font-weight:700;margin-bottom:6px;color:#3d3f41}
   .in{width:100%;height:44px;border:1px solid var(--line);border-radius:8px;background:#fafaf8;padding:0 12px;font:inherit;font-size:14px;color:var(--ink);transition:.2s}
+  textarea.in{height:auto;padding:10px 12px;resize:vertical}
   .in:focus{outline:none;border-color:var(--gold-d);background:#fff;box-shadow:0 0 0 3px rgba(230,184,77,.3)}
   select.in{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='m1 1 5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
 
@@ -159,10 +169,12 @@ if ($loggedIn) {
   .badge svg{width:10px;height:10px}
   .item-b{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
   .item-b h3{margin:0;font-size:14px;line-height:1.3;letter-spacing:-.01em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .pill-row{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
   .pill{align-self:flex-start;font-size:11px;font-weight:700;color:var(--gold-d);background:#fdf6e3;border-radius:99px;padding:3px 10px}
+  .price-tag{font-size:11px;font-weight:700;color:#1f8f4e;background:#edf7ed;border-radius:99px;padding:3px 8px}
   .date{font-size:11px;color:var(--muted)}
-  .item-f{margin-top:auto;padding-top:8px;display:flex;gap:8px}
-  .item-f .btn{height:34px;font-size:12px;padding:0 12px;flex:1}
+  .item-f{margin-top:auto;padding-top:8px;display:flex;gap:6px}
+  .item-f .btn{height:34px;font-size:12px;padding:0 10px;flex:1}
   .empty{padding:60px 20px;text-align:center;color:var(--muted)}
   .empty svg{width:48px;height:48px;color:#c9c6bb}
   .empty b{display:block;margin-top:8px;color:var(--ink);font-size:16px}
@@ -193,6 +205,24 @@ if ($loggedIn) {
   .note code{background:rgba(0,0,0,.07);padding:1px 5px;border-radius:4px;font-size:12px}
   .back{display:block;text-align:center;margin-top:16px;font-size:13px;color:var(--muted);text-decoration:none}
   .back:hover{color:var(--ink)}
+
+  /* ---------- Top navigation + dashboard cards ---------- */
+  .nav{display:flex;gap:4px;align-items:center;margin-left:8px}
+  .nav a{color:rgba(255,255,255,.7);text-decoration:none;font-weight:700;font-size:13px;padding:8px 12px;border-radius:8px;transition:.2s}
+  .nav a:hover{color:#fff;background:rgba(255,255,255,.08)}
+  .nav a.on{color:var(--ink);background:var(--gold)}
+  .hub{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-bottom:22px}
+  .tile{display:block;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;transition:.25s;position:relative}
+  a.tile:hover{transform:translateY(-3px);border-color:var(--ink);box-shadow:0 18px 30px -22px rgba(0,0,0,.5)}
+  .tile h3{margin:0 0 4px;font-size:16px;letter-spacing:-.02em}
+  .tile p{margin:0;font-size:13px;color:var(--muted)}
+  .tile .n{font-size:12px;font-weight:800;color:var(--gold-d);margin-top:10px;display:block}
+  .tile.soon{opacity:.55;background:#faf9f6}
+  .tile.soon .n{color:var(--muted)}
+  .tile.main{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .tile.main p{color:rgba(255,255,255,.65)}
+  .tile.main .n{color:var(--gold)}
+  @media (max-width:820px){.nav{display:none}}
 
   @media (max-width:1020px){
     .grid{grid-template-columns:1fr}
@@ -244,10 +274,22 @@ if ($loggedIn) {
       <span class="mark">MM</span>
       <span><b>Machine Man</b><small>Admin</small></span>
     </a>
+    <nav class="nav" aria-label="Admin sections">
+      <a class="on" href="./">Dashboard</a>
+      <a href="content.php#home">Home</a>
+      <a href="machines.php">Machines</a>
+      <a href="content.php#categories">Categories</a>
+      <a href="content.php#services">Services</a>
+      <a href="content.php#projects">Projects</a>
+      <a href="#media">Gallery</a>
+      <a href="content.php#about">About</a>
+      <a href="content.php#contact">Contact</a>
+      <a href="enquiries.php">Enquiries<?= $unread ? ' (' . (int)$unread . ')' : '' ?></a>
+    </nav>
     <div class="top-actions">
-      <a class="btn btn-ghost" href="/gallery/" target="_blank" rel="noopener">
+      <a class="btn btn-ghost" href="/" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="m15 3 6 0 0 6"/><path d="M10 14 21 3"/></svg>
-        <span class="lbl">View gallery</span>
+        <span class="lbl">View website</span>
       </a>
       <a class="btn btn-ghost" href="?logout=1">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg>
@@ -261,10 +303,29 @@ if ($loggedIn) {
   <div class="hero">
     <div>
       <div class="eyebrow">Admin dashboard</div>
-      <h1>Media manager</h1>
-      <p class="sub">Upload new machines, tools and gallery files. Everything you add appears on the website gallery right away.</p>
+      <h1>Manage your website</h1>
+      <p class="sub">Add machines and generators, and upload photos and videos. Changes appear on the website right away.</p>
     </div>
   </div>
+
+  <div class="hub">
+    <a class="tile main" href="machines.php">
+      <h3>Machines &amp; generators</h3>
+      <p>Add, edit, hide or delete machines and generators. Set pictures, prices and specs.</p>
+      <span class="n"><?= (int)$machLive ?> live<?= $machHidden ? ' · ' . (int)$machHidden . ' hidden' : '' ?> &rarr; Open</span>
+    </a>
+    <a class="tile" href="content.php#home"><h3>Home page</h3><p>Heading, intro text and the about section.</p><span class="n">Edit &rarr;</span></a>
+    <a class="tile" href="content.php#categories"><h3>Categories</h3><p>Names, pictures and which show on the home page.</p><span class="n">Edit &rarr;</span></a>
+    <a class="tile" href="content.php#services"><h3>Services</h3><p>The list on the Services page.</p><span class="n">Edit &rarr;</span></a>
+    <a class="tile" href="content.php#projects"><h3>Projects</h3><p>Deliveries and customer projects.</p><span class="n">Edit &rarr;</span></a>
+    <a class="tile" href="#media"><h3>Gallery</h3><p>Photos and videos. Manage them below.</p><span class="n">Manage below &darr;</span></a>
+    <a class="tile" href="content.php#about"><h3>About page</h3><p>Story text and the picture.</p><span class="n">Edit &rarr;</span></a>
+    <a class="tile" href="content.php#contact"><h3>Contact page</h3><p>Phone, email, WhatsApp, address and hours.</p><span class="n">Edit &rarr;</span></a>
+    <a class="tile" href="enquiries.php"><h3>Enquiries</h3><p>Messages from the Contact and Quote forms.</p><span class="n"><?= $unread ? (int)$unread . ' new &rarr; Open' : 'No new messages' ?></span></a>
+  </div>
+
+  <div id="media"></div>
+  <div class="eyebrow" style="margin-bottom:14px">Gallery media</div>
 
   <div class="stats">
     <div class="stat"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></i><div><b id="s-total">0</b><span>Total items</span></div></div>
@@ -276,7 +337,7 @@ if ($loggedIn) {
   <div class="grid">
     <!-- Upload -->
     <section class="card sticky">
-      <div class="card-h"><h2>Upload new media</h2><p>Add a photo or video with a title and category.</p></div>
+      <div class="card-h"><h2>Upload new media</h2><p>Add a photo or video with title, category, price, and specs.</p></div>
       <form class="card-b" id="up" novalidate>
         <label class="f"><span>Title / machine name</span>
           <input class="in" type="text" name="title" id="title" maxlength="255" placeholder="e.g. Diesel Welding Generator" required>
@@ -287,6 +348,12 @@ if ($loggedIn) {
               <option value="<?= htmlspecialchars($c, ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars($c, ENT_QUOTES, 'UTF-8') ?></option>
             <?php endforeach; ?>
           </select>
+        </label>
+        <label class="f"><span>Price (Optional)</span>
+          <input class="in" type="text" name="price" id="price" maxlength="100" placeholder="e.g. UGX 4,500,000 or Call for Price">
+        </label>
+        <label class="f"><span>Description / Specifications (Optional)</span>
+          <textarea class="in" name="description" id="description" rows="3" placeholder="Enter key specs, power output, or details..."></textarea>
         </label>
 
         <div class="drop" id="drop">
@@ -410,13 +477,16 @@ window.__BOOT__ = <?= json_encode($boot, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_
       var badge = isVid
         ? '<span class="badge video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg>Video</span>'
         : '<span class="badge">Photo</span>';
+      
+      var priceHtml = i.price ? '<span class="price-tag">' + esc(i.price) + '</span>' : '';
+
       return '<article class="item">' +
         '<div class="thumb">' + media + badge + '</div>' +
         '<div class="item-b"><h3>' + esc(i.title) + '</h3>' +
-        '<span class="pill">' + esc(i.category) + '</span>' +
+        '<div class="pill-row"><span class="pill">' + esc(i.category) + '</span>' + priceHtml + '</div>' +
         '<span class="date">' + fmtDate(i.created_at) + '</span>' +
         '<div class="item-f">' +
-          '<a class="btn btn-line" href="' + esc(i.file_url) + '" target="_blank" rel="noopener">Open</a>' +
+          '<a class="btn btn-line" href="edit.php?id=' + esc(i.id) + '">Edit</a>' +
           '<button class="btn btn-danger" data-del="' + esc(i.id) + '" data-title="' + esc(i.title) + '" type="button">Delete</button>' +
         '</div></div></article>';
     }).join('');
