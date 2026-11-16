@@ -26,23 +26,32 @@ export type LiveMachine = Machine & { range?: string }
  * Nothing is hidden: machines that share a range are simply placed next to each
  * other, right after the first machine of that range.
  */
+const isGenerator = (m: LiveMachine) => /generator/i.test(m.category) || /generator/i.test(m.name)
+
+/**
+ * Main list order: generators first (they are the priority), then everything else.
+ * Machines sharing a "range" stay together, right after the first one.
+ */
 export function listedMachines(machines: LiveMachine[]): LiveMachine[] {
-  const out: LiveMachine[] = []
+  const groups: LiveMachine[][] = []
   const done = new Set<string>()
   for (const m of machines) {
     if (done.has(m.slug)) continue
-    out.push(m)
+    const group = [m]
     done.add(m.slug)
     if (m.range) {
       for (const n of machines) {
         if (!done.has(n.slug) && n.range === m.range) {
-          out.push(n)
+          group.push(n)
           done.add(n.slug)
         }
       }
     }
+    groups.push(group)
   }
-  return out
+  const first = groups.filter((g) => g.some(isGenerator))
+  const rest = groups.filter((g) => !g.some(isGenerator))
+  return [...first, ...rest].flat()
 }
 
 export type Project = { tag: string; title: string; text: string; image: string }

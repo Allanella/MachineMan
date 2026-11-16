@@ -213,7 +213,7 @@ export function Navbar() {
                         <div className="animate-in fade-in slide-in-from-top-2 border border-black/10 bg-white shadow-[0_30px_60px_-20px_rgba(0,0,0,0.3)]">
                           <div className="flex items-center justify-between border-b border-black/10 bg-[#faf9f6] px-6 py-3.5">
                             <span className="text-sm font-bold text-[#111]">
-                              {isCategories ? 'Shop by category' : 'Featured machines'}
+                              {isCategories ? 'Shop by category' : 'Generators & machines'}
                             </span>
                             <Link
                               href={href}
@@ -247,8 +247,8 @@ export function Navbar() {
                               ))}
                             </div>
                           ) : (
-                            <div className="grid grid-cols-2 gap-1 p-3">
-                              {listed.slice(0, 6).map((m) => (
+                            <div className="grid max-h-[60vh] grid-cols-2 gap-1 overflow-y-auto p-3">
+                              {listed.slice(0, 10).map((m) => (
                                 <Link
                                   key={m.slug}
                                   href={`/machines/${m.slug}`}
@@ -269,6 +269,14 @@ export function Navbar() {
                                 </Link>
                               ))}
                             </div>
+                          )}
+                          {!isCategories && (
+                            <Link
+                              href="/machines?category=Generators"
+                              className="flex items-center justify-between border-t border-black/10 bg-[#111] px-6 py-3 text-xs font-bold uppercase tracking-widest text-white transition hover:bg-[#e6b84d] hover:text-[#111]"
+                            >
+                              See all generators <ArrowUpRight size={14} />
+                            </Link>
                           )}
                         </div>
                       </div>
