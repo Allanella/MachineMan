@@ -1,3 +1,4 @@
+
 'use client'
 
 import { useState, useEffect, useMemo, useCallback } from 'react'
@@ -5,6 +6,7 @@ import { ArrowUpRight, ChevronLeft, ChevronRight, Maximize2, Play, X } from 'luc
 import { CTASection, Footer, Navbar, SectionHeading } from '@/components/site'
 import { galleryImages } from '@/lib/site-data'
 import { useUploads } from '@/lib/use-uploads'
+import { useLive } from '@/lib/use-live'
 
 type Filter = string
 
@@ -27,15 +29,22 @@ export default function GalleryPage() {
   const [filter, setFilter] = useState<Filter>('All')
   const [lightbox, setLightbox] = useState<number | null>(null)
 
-  // Items uploaded from /admin appear first, then the built-in photos
+  // Order: gallery uploads from /admin, then every machine listed under Machines
+  // (generators first, so new ones appear automatically), then the built-in photos.
   const uploads = useUploads()
-  const images = useMemo<GalleryImage[]>(
-    () => [
+  const { listed } = useLive()
+  const images = useMemo<GalleryImage[]>(() => {
+    const all: GalleryImage[] = [
       ...uploads.map((u) => ({ src: u.src, alt: u.title, category: u.category, type: u.type })),
+      ...listed
+        .filter((m) => m.image)
+        .map((m) => ({ src: m.image, alt: m.name, category: m.category, type: 'image' as const })),
       ...staticImages,
-    ],
-    [uploads]
-  )
+    ]
+    // the same photo is only shown once
+    const seen = new Set<string>()
+    return all.filter((i) => (seen.has(i.src) ? false : (seen.add(i.src), true)))
+  }, [uploads, listed])
 
   const filters = useMemo<Filter[]>(
     () => ['All', ...Array.from(new Set(images.map((i) => i.category)))],
